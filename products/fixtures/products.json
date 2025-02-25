@@ -1,0 +1,11 @@
+[{
+    "pk": 1,
+    "model": "products.product",
+    "fields": {
+        "name": "Pendle Moor",
+        "description": "This deep, earthy fragrance captures the rugged beauty of Pendle Hill and the surrounding moors. The scent of heather in bloom mingles with damp moss and smoky vetiver, reminiscent of misty walks through ancient landscapes. A subtle touch of black tea adds warmth, nodding to the region’s folklore and legends.",
+        "price": "7.50",
+        "category": 1,
+        "image": "pendle_moor1.webp"
+    }
+}]
