@@ -49,7 +49,7 @@
     <header class="container-fluid fixed-top">
         <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-lg-0 text-center text-lg-left">
-                <a href="{url 'home' }" class="nav-link main-logo-link">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link">
                     <h2 class="logo-font text-black my-0">Ribble Valley Soaps</h2>
                 </a>
             </div>
@@ -80,10 +80,10 @@
                             </div>
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">All Products</a>
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Soaps</a>
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Shampoo Bars</a>
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Bundles</a>
+                            <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
+                            <a href="{% url 'products' %}?category=soaps" class="dropdown-item">Soaps</a>
+                            <a href="{% url 'products' %}?category=shampoo_bars" class="dropdown-item">Shampoo Bars</a>
+                            <a href="{% url 'products' %}?category=bundles" class="dropdown-item">Bundles</a>
                         </div>
                     </li>
                     {% endif %}
