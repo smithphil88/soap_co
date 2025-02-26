@@ -27,6 +27,7 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
     ordering = ('name',)
+    filter_horizontal = ('ingredients',)
 
 
 class CategoryAdmin(admin.ModelAdmin):
