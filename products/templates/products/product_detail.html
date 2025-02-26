@@ -32,7 +32,20 @@
                 <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                 <p class="mb-0 text-small text-muted">{{ product.weight }}g</p>
                 <p class="mb-0 text-small">{{ product.description }}</p>
-                <h5 class="mt-5">Ingredients</h5>
+            </div>
+            <div class="row text-center">
+                <p class="w-100">Ingredients</p>
+                {% for ingredient in product.ingredients.all %}
+                <div class="col-4 text-center">
+                    {% if ingredient.image %}
+                    <img src="{{ ingredient.image.url }}" alt="{{ ingredient.name }}" class="img-fluid"
+                        style="max-width: 100px;">
+                    {% else %}
+                    <p>No Image Available</p>
+                    {% endif %}
+                    <p>{{ ingredient.name }}</p>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
