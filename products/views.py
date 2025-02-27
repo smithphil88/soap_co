@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse,  get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Ingredient
+from .models import Product, Ingredient, Category
 
 # Create your views here.
 
@@ -11,8 +11,25 @@ def all_products(request):
 
     products = Product.objects.all()
     query = None
+    categories = None
+    sort = None
+    direction = None
 
     if request.GET:
+
+        if 'sort' in request.GET:
+            sort = request.GET['sort']
+            direction = request.GET.get('direction', 'asc')
+            if sort == 'name':
+                products = products.order_by('name' if direction == 'asc' else '-name')
+            elif sort == 'price':
+                products = products.order_by('price' if direction == 'asc' else '-price')
+
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -25,6 +42,7 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
+        'current_categories': categories,
     }
 
     return render(request, 'products/products.html', context)

@@ -81,7 +81,7 @@
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
-                            <a href="{% url 'products' %}?category=soaps" class="dropdown-item">Soaps</a>
+                            <a href="{% url 'products' %}?category=soap" class="dropdown-item">Soaps</a>
                             <a href="{% url 'products' %}?category=shampoo_bars" class="dropdown-item">Shampoo Bars</a>
                             <a href="{% url 'products' %}?category=bundles" class="dropdown-item">Bundles</a>
                         </div>
@@ -142,6 +142,28 @@
     {% endblock %}
 
     {% block postloadjs %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let backToTop = document.getElementById("backToTop");
+
+            // Show button when scrolling down
+            window.onscroll = function () {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    backToTop.style.display = "block";
+                } else {
+                    backToTop.style.display = "none";
+                }
+            };
+
+            // Scroll smoothly to top when clicked
+            backToTop.addEventListener("click", function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
     {% endblock %}
 
 
