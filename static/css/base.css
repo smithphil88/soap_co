@@ -67,9 +67,7 @@ body {
 .card-img-top {
     max-width: 100%;
     width: 250px;
-    /* Set a fixed width */
     height: 250px;
-    /* Set a fixed height */
     object-fit: cover;
     border-radius: 10px;
 }
@@ -105,10 +103,8 @@ body {
 #backToTop:focus,
 #backToTop:hover {
     background: #B55A50;
-    /* A slightly lighter shade */
     outline: none;
     box-shadow: 0 0 10px rgba(155, 78, 70, 0.5);
-    /* Adds a soft glow */
 }
 
 /* -------------------------------- Media Queries */
