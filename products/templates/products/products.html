@@ -24,19 +24,19 @@
                 <div class="col-md-8 text-center">
                     <strong>Sort by:</strong>
                     <a href="?sort=name&direction=asc{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}"
-                        class="btn btn-outline-primary btn-sm {% if sort == 'name' and direction == 'asc' %}active{% endif %}">
+                        class="btn sort-btn shadow-none {% if sort == 'name' and direction == 'asc' %}active{% endif %}">
                         Name (A-Z)
                     </a>
                     <a href="?sort=name&direction=desc{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}"
-                        class="btn btn-outline-primary btn-sm {% if sort == 'name' and direction == 'desc' %}active{% endif %}">
+                        class="btn sort-btn shadow-none {% if sort == 'name' and direction == 'desc' %}active{% endif %}">
                         Name (Z-A)
                     </a>
                     <a href="?sort=price&direction=asc{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}"
-                        class="btn btn-outline-primary btn-sm {% if sort == 'price' and direction == 'asc' %}active{% endif %}">
+                        class="btn sort-btn shadow-none {% if sort == 'price' and direction == 'asc' %}active{% endif %}">
                         Price (Low to High)
                     </a>
                     <a href="?sort=price&direction=desc{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}"
-                        class="btn btn-outline-primary btn-sm {% if sort == 'price' and direction == 'desc' %}active{% endif %}">
+                        class="btn sort-btn shadow-none {% if sort == 'price' and direction == 'desc' %}active{% endif %}">
                         Price (High to Low)
                     </a>
                 </div>

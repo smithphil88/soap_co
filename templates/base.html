@@ -126,10 +126,15 @@
                 </ul>
             </div>
         </div>
-        <div>
-
+        {% if request.resolver_match.url_name == "home" %}
+        <div class="row text-center bg-warning text-dark py-2">
+            <div class="col">
+                <h4 class="my-0 font-weight-bold">Buy 5 products and get a free 'Pendle Moor' soap!</h4>
+            </div>
         </div>
+        {% endif %}
     </header>
+
 
     {% if messages %}
     <div class="message-container"></div>
