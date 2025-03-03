@@ -126,6 +126,11 @@ body {
     box-shadow: 0 0 10px rgba(155, 78, 70, 0.5);
 }
 
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
