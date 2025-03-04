@@ -37,13 +37,16 @@ def update_bag(request, item_id):
     """ Update the quantity of the specified product in the bag """
 
     try:
+        product = Product.objects.get(pk=item_id)
         quantity = int(request.POST.get('quantity', 1))  # Get quantity from POST
         bag = request.session.get('bag', {})
 
         if quantity > 0:
             bag[item_id] = quantity  # Update the item quantity
+            messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
         else:
             bag.pop(item_id, None)  # Remove item if quantity is 0
+            messages.success(request, f'Added {product.name} to your bag')
 
         request.session['bag'] = bag
         request.session.modified = True  # Ensure session updates
@@ -57,10 +60,12 @@ def update_bag(request, item_id):
 def remove_from_bag(request, item_id):
     """Remove an item from the shopping bag"""
     try:
+        product = Product.objects.get(pk=item_id)
         bag = request.session.get('bag', {})
 
         if item_id in bag:
             del bag[item_id]  # Remove the item from the session bag
+            messages.success(request, f'Removed {product.name} from your bag')
 
         request.session['bag'] = bag
         request.session.modified = True  # Ensure session updates
