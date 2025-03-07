@@ -1,16 +1,17 @@
 from django.contrib import admin
-from .models import Category, Product, Ingredient
+from django.utils.html import format_html
+from .models import Category, Product, Ingredient, ProductGallery
 
 # Register your models here.
 
 
-@admin.register(Ingredient)
-class IngredientAdmin(admin.ModelAdmin):
-    list_display = ('name', 'image_preview')
+class ProductGalleryInline(admin.TabularInline):
+    model = ProductGallery
+    extra = 3  # Allows adding 3 extra images per product
 
     def image_preview(self, obj):
         if obj.image:
-            return f'<img src="{obj.image.url}" width="50" height="50" />'
+            return format_html('<img src="{}" width="50" height="50" />', obj.image.url)
         return "No Image"
 
     image_preview.allow_tags = True
@@ -26,6 +27,7 @@ class ProductAdmin(admin.ModelAdmin):
         'weight',
     )
 
+    inlines = [ProductGalleryInline]
     ordering = ('name',)
     filter_horizontal = ('ingredients',)
 
@@ -37,5 +39,19 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
+@admin.register(Ingredient)
+class IngredientAdmin(admin.ModelAdmin):
+    list_display = ('name', 'image_preview')
+
+    def image_preview(self, obj):
+        if obj.image:
+            return f'<img src="{obj.image.url}" width="50" height="50" />'
+        return "No Image"
+
+    image_preview.allow_tags = True
+    image_preview.short_description = "Image Preview"
+
+
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(ProductGallery)

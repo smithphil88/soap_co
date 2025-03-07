@@ -1,0 +1,1 @@
+web: gunicorn soap_co.wsgi:application

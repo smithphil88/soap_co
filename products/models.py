@@ -29,10 +29,10 @@ class Product(models.Model):
     description = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     weight = models.IntegerField(default=140,
-                                    help_text='weight in grams', null=True,
-                                    blank=True)
+                                help_text='weight in grams', null=True,
+                                blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE,
-                                    related_name="soaps")
+                                related_name="soaps")
     image = models.ImageField(null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     ingredients = models.ManyToManyField(Ingredient, related_name="products",
@@ -40,3 +40,12 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ProductGallery(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="gallery")
+    image = models.ImageField(upload_to='product_gallery/', null=True, blank=True)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+
+    def __str__(self):
+        return f"Image for {self.product.name}"
