@@ -43,6 +43,9 @@ class Product(models.Model):
 
 
 class ProductGallery(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Product Galleries'
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="gallery")
     image = CloudinaryField('image', null=True, blank=True)
 
