@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 
 class Category(models.Model):
@@ -18,7 +19,7 @@ class Category(models.Model):
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='ingredients/', null=True, blank=True)
+    image = CloudinaryField('image', null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -33,8 +34,7 @@ class Product(models.Model):
                                 blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE,
                                 related_name="soaps")
-    image = models.ImageField(null=True, blank=True)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = CloudinaryField('image', null=True, blank=True)
     ingredients = models.ManyToManyField(Ingredient, related_name="products",
                                         blank=True)
 
@@ -44,8 +44,7 @@ class Product(models.Model):
 
 class ProductGallery(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="gallery")
-    image = models.ImageField(upload_to='product_gallery/', null=True, blank=True)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = CloudinaryField('image', null=True, blank=True)
 
     def __str__(self):
         return f"Image for {self.product.name}"
