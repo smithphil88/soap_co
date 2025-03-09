@@ -23,7 +23,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -32,6 +31,7 @@ SECRET_KEY = SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
+
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -195,5 +195,3 @@ cloudinary.config(
     api_key=os.getenv('CLOUDINARY_API_KEY'),
     api_secret=os.getenv('CLOUDINARY_API_SECRET')
 )
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
