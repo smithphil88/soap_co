@@ -24,6 +24,36 @@ class Order(models.Model):
     grand_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
 
+    def _generate_order_number(self):
+        """
+        Generates a unique order number using UUID
+        """
+        return uuid.uuid4().hex.upper()
+
+    def update_total(self):
+        """
+        Update grand total each time a line item is added,
+        accounting for delivery costs.
+        """
+        self.order_total = self.lineitems.aggregate(
+            Sum('lineitem_total')
+            )['lineitem_total__sum'] or 0
+        self.delivery_cost = 0
+        self.grand_total = self.order_total + self.delivery_cost
+        self.save()
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the order number
+        if it hasn't been set already.
+        """
+        if not self.order_number:
+            self.order_number = self._generate_order_number()
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"Order {self.order_number} by {self.full_name}"
+
 
 class OrderLineItem(models.Model):
     order = models.ForeignKey(
@@ -36,3 +66,14 @@ class OrderLineItem(models.Model):
     lineitem_total = models.DecimalField(
         max_digits=6,
         decimal_places=2, null=False, blank=False, editable=False)
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the lineitem total
+        and update the order total.
+        """
+        self.lineitem_total = self.product.price * self.quantity
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f'Name: {self.product.name} -- Order: {self.order.order_number}'
