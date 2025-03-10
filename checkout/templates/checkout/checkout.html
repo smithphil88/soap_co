@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <!-- Order Summary -->
+        <div class="col-lg-5 mb-4">
+            <div class="card shadow-sm p-4">
+                <h3 class="text-center mb-3">Order Summary</h3>
+                <ul class="list-group mb-3">
+                    {% for item in bag_items %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="col-2 mb-1">
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                    {% if item.product.image %}
+                                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                    {% else %}
+                                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    {% endif %}
+                                </a>
+                            </div>
+                            <strong>{{ item.product.name }}</strong>
+                            <br>
+                            <small class="text-muted">Qty: {{ item.quantity }}</small>
+                        </div>
+                        <span>£{{ item.subtotal|floatformat:2 }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Order Total:</span>
+                        <strong>£{{ total | floatformat:2 }}</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Delivery:</span>
+                        <strong>£{{ delivery | floatformat:2 }}</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                        <span class="font-weight-bold">Grand Total:</span>
+                        <strong class="text-success">£{{ grand_total | floatformat:2 }}</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Checkout Form -->
+        <div class="col-lg-7">
+            <div class="card shadow-sm p-4">
+                <h3 class="text-center mb-4">Checkout</h3>
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+
+                    <!-- Customer Details -->
+                    <h5 class="mb-3">Personal Details</h5>
+                    {{ order_form.full_name | as_crispy_field }}
+                    {{ order_form.email | as_crispy_field }}
+                    {{ order_form.phone_number | as_crispy_field }}
+
+                    <!-- Delivery Details -->
+                    <h5 class="mt-4 mb-3">Delivery Address</h5>
+                    {{ order_form.street_address1 | as_crispy_field }}
+                    {{ order_form.street_address2 | as_crispy_field }}
+                    {{ order_form.town_or_city | as_crispy_field }}
+                    {{ order_form.postcode | as_crispy_field }}
+                    {{ order_form.county | as_crispy_field }}
+                    {{ order_form.country | as_crispy_field }}
+
+                    <!-- Save Info -->
+                    <div class="form-check mt-3">
+                        {% if user.is_authenticated %}
+                        <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
+                        <label class="form-check-label" for="id-save-info">Save delivery details to profile</label>
+                        {% else %}
+                        <p class="small text-muted">Create an <a href="{% url 'account_signup' %}">account</a> or <a
+                                href="{% url 'account_login' %}">login</a> to save details.</p>
+                        {% endif %}
+                    </div>
+
+                    <!-- Payment Section -->
+                    <h5 class="mt-4 mb-3">Payment Details</h5>
+                    <div class="mb-3" id="card-element"></div>
+                    <div class="text-danger mb-3" id="card-errors" role="alert"></div>
+
+                    <!-- Buttons -->
+                    <div class="text-center mt-4">
+                        <a href="{% url 'view_bag' %}" class="btn btn-outline-secondary">Adjust Bag</a>
+                        <button id="submit-button" class="btn btn-success">Complete Order</button>
+                        <p class="small text-muted mt-2">Your card will be charged
+                            <strong>£{{ grand_total|floatformat:2 }}</strong></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
