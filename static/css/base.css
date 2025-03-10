@@ -5,7 +5,7 @@ html {
 }
 
 body {
-    background: url('/media/river_hodder.webp') no-repeat center center fixed;
+    background: url('https://res.cloudinary.com/dfjwzpcwf/image/upload/v1741601371/a0nf28nyfn7gkkdb0nrf.webp') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #F7F5F3;
