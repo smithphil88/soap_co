@@ -35,6 +35,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
+    'localhost',
     'ribble-valley-soap-8a87bc1ba7c9.herokuapp.com'
     ]
 
