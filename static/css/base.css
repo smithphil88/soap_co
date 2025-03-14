@@ -144,6 +144,24 @@ body {
     color: #F7F5F3 !important;
 }
 
+.increment-qty,
+.decrement-qty {
+    background: #2F434C;
+    color: #F7F5F3;
+}
+
+.increment-qty:active,
+.decrement-qty:active {
+    background-color: #F7F5F3 !important;
+    color: #2F434C !important;
+    border-color: black !important;
+}
+
+.increment-qty:active .icon i,
+.decrement-qty:active .icon i {
+    color: white !important;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
