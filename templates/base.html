@@ -72,6 +72,14 @@
             </div>
             <div class="col-12 col-lg-4 my-auto py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                    <li class="list-inline-item">
+                        <a class="text-black nav-link" href="{% url 'mission' %}">
+                            <div class="text-center">
+                                <div><i class="fa-solid fa-leaf fa-lg"></i></i></div>
+                                <p class="my-0">Mission</p>
+                            </div>
+                        </a>
+                    </li>
                     {% if request.user.is_authenticated %}
                     <li class="list-inline-item dropdown">
                         <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
@@ -109,14 +117,6 @@
                             <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                             {% endif %}
                         </div>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="text-black nav-link" href="{% url 'mission' %}">
-                            <div class="text-center">
-                                <div><i class="fa-solid fa-leaf fa-lg"></i></i></div>
-                                <p class="my-0">Mission</p>
-                            </div>
-                        </a>
                     </li>
                     <li class="list-inline-item">
                         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
