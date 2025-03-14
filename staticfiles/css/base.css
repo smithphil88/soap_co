@@ -30,9 +30,16 @@ body {
 }
 
 .shop-now-button {
-    background: black;
-    color: white;
+    background: black !important;
+    color: #F7F5F3 !important;
     min-width: 260px;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus {
+    background: #2F434C !important;
+    color: #F7F5F3;
 }
 
 .btn-black {
@@ -40,9 +47,6 @@ body {
     color: white;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
@@ -138,6 +142,24 @@ body {
 .offer {
     background: #2F434C;
     color: #F7F5F3 !important;
+}
+
+.increment-qty,
+.decrement-qty {
+    background: #2F434C;
+    color: #F7F5F3;
+}
+
+.increment-qty:active,
+.decrement-qty:active {
+    background-color: #F7F5F3 !important;
+    color: #2F434C !important;
+    border-color: black !important;
+}
+
+.increment-qty:active .icon i,
+.decrement-qty:active .icon i {
+    color: white !important;
 }
 
 /* ------------------------------- bootstrap toasts */
