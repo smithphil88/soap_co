@@ -162,6 +162,39 @@ body {
     color: white !important;
 }
 
+.btn-custom-primary {
+    background-color: #9B4E46 !important;
+    /* Custom color */
+    color: #F7F5F3 !important;
+    border: 2px solid #9B4E46 !important;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-custom-primary:hover {
+    background-color: #9B4E46 !important;
+    /* Darker shade */
+    border-color: #9B4E46 !important;
+    transform: scale(1.05);
+}
+
+.btn-custom-secondary {
+    background-color: #2F434C !important;
+    /* Dark gray */
+    color: #F7F5F3 !important;
+    border: 2px solid #2F434C !important;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-custom-secondary:hover {
+    background-color: #222;
+    border-color: #111;
+    transform: scale(1.05);
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
