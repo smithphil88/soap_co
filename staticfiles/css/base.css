@@ -212,6 +212,24 @@ body {
     height: 2px;
 }
 
+.bag-empty {
+    color: black;
+    transition: color 0.3s ease-in-out;
+}
+
+.bag-not-empty {
+    color: #A97C4C;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.bag-not-empty:hover {
+    color: #B99064;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+
 /* ------------------------------- prodcut image gallery */
 
 .image-container {
