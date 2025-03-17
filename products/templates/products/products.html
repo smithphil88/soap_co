@@ -55,6 +55,12 @@
                         <div class="card-footer bg-white text-left">
                             <p class="lead font-weight-bold">£{{ product.price }}</p>
                             <p class="text-muted">{{ product.weight }}g</p>
+                            {% if request.user.is_superuser %}
+                            <small class="ml-3">
+                                <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                            </small>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
