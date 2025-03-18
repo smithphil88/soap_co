@@ -83,6 +83,12 @@
                 </tbody>
             </table>
 
+            {% if free_soap_eligible and free_soap %}
+            <div class="alert alert-success">
+                🎉 You qualify for a free <strong>{{ free_soap.name }}</strong>! It has been added to your cart.
+            </div>
+            {% endif %}
+
             <h4 class="text-right">Total: £{{ grand_total }}</h4>
 
             <div class="mt-4">

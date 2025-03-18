@@ -96,17 +96,57 @@ body {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.sort-btn {
+.sort-btn,
+.profile-btn {
     background: #9B4E46 !important;
     color: white !important;
 }
 
 .sort-btn:focus,
 .sort-btn:hover,
-.sort-btn:active {
+.sort-btn:active,
+.profile-btn:hover,
+.profile-btn:focus,
+.profile-btn:active {
     background: #B55A50 !important;
     color: white !important;
     box-shadow: 0 0 10px rgba(155, 78, 70, 0.5);
+}
+
+.btn-custom-primary {
+    display: inline-block;
+    background-color: #9B4E46;
+    color: #F7F5F3;
+    border: 2px solid #9B4E46;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn-custom-primary:hover {
+    background-color: #B55A50;
+    border-color: #B55A50;
+    box-shadow: 0 0 10px rgba(155, 78, 70, 0.5);
+}
+
+.btn-custom-secondary {
+    display: inline-block;
+    background-color: #2F434C;
+    color: #F7F5F3;
+    border: 2px solid #2F434C;
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn-custom-secondary:hover {
+    background-color: #3E5965;
+    border-color: #3E5965;
+    text-decoration: none;
+    color: #F7F5F3;
+    box-shadow: 0 0 10px rgba(143, 138, 137, 0.5);
 }
 
 .btn-order-summary {
@@ -177,44 +217,6 @@ body {
 .increment-qty:active .icon i,
 .decrement-qty:active .icon i {
     color: white !important;
-}
-
-.btn-custom-primary {
-    display: inline-block;
-    background-color: #9B4E46;
-    color: #F7F5F3;
-    border: 2px solid #9B4E46;
-    padding: 10px 20px;
-    margin: 5px;
-    transition: all 0.3s ease-in-out;
-    border-radius: 10px;
-    text-decoration: none;
-}
-
-.btn-custom-primary:hover {
-    background-color: #9B4E46;
-    border-color: #9B4E46;
-    transform: scale(1.05);
-}
-
-.btn-custom-secondary {
-    display: inline-block;
-    background-color: #2F434C;
-    color: #F7F5F3;
-    border: 2px solid #2F434C;
-    margin: 5px;
-    padding: 10px 20px;
-    transition: all 0.3s ease-in-out;
-    border-radius: 10px;
-    text-decoration: none;
-}
-
-.btn-custom-secondary:hover {
-    background-color: #2F434C;
-    border-color: #2F434C;
-    transform: scale(1.05);
-    text-decoration: none;
-    color: #F7F5F3;
 }
 
 .custom-footer {
