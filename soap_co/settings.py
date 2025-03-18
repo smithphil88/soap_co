@@ -221,6 +221,3 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-print("DEBUG:", DEBUG)
-print("DEVELOPMENT in os.environ:", 'DEVELOPMENT' in os.environ)
-print("EMAIL_BACKEND:", EMAIL_BACKEND)

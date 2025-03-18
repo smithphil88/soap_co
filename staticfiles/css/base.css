@@ -106,8 +106,25 @@ body {
 .sort-btn:active {
     background: #B55A50 !important;
     color: white !important;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+    box-shadow: 0 0 10px rgba(155, 78, 70, 0.5);
+}
+
+.btn-order-summary {
+    background-color: #9B4E46;
+    color: #F7F5F3;
+    border: 2px solid #9B4E46 !important;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.btn-order-summary:focus,
+.btn-order-summary:hover,
+.btn-order-summary:active {
+    background: #B55A50;
+    color: #F7F5F3;
+    outline: none;
+    box-shadow: 0 0 10px rgba(155, 78, 70, 0.5);
+    text-decoration: none;
 }
 
 #backToTop {
@@ -163,36 +180,46 @@ body {
 }
 
 .btn-custom-primary {
-    background-color: #9B4E46 !important;
-    /* Custom color */
-    color: #F7F5F3 !important;
-    border: 2px solid #9B4E46 !important;
+    display: inline-block;
+    background-color: #9B4E46;
+    color: #F7F5F3;
+    border: 2px solid #9B4E46;
     padding: 10px 20px;
-    font-weight: bold;
+    margin: 5px;
     transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    text-decoration: none;
 }
 
 .btn-custom-primary:hover {
-    background-color: #9B4E46 !important;
-    /* Darker shade */
-    border-color: #9B4E46 !important;
+    background-color: #9B4E46;
+    border-color: #9B4E46;
     transform: scale(1.05);
 }
 
 .btn-custom-secondary {
-    background-color: #2F434C !important;
-    /* Dark gray */
-    color: #F7F5F3 !important;
-    border: 2px solid #2F434C !important;
+    display: inline-block;
+    background-color: #2F434C;
+    color: #F7F5F3;
+    border: 2px solid #2F434C;
+    margin: 5px;
     padding: 10px 20px;
-    font-weight: bold;
     transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    text-decoration: none;
 }
 
 .btn-custom-secondary:hover {
-    background-color: #222;
-    border-color: #111;
+    background-color: #2F434C;
+    border-color: #2F434C;
     transform: scale(1.05);
+    text-decoration: none;
+    color: #F7F5F3;
+}
+
+.custom-footer {
+    background-color: #2F434C;
+    color: #F7F5F3;
 }
 
 /* ------------------------------- bootstrap toasts */
@@ -218,13 +245,13 @@ body {
 }
 
 .bag-not-empty {
-    color: #A97C4C;
+    color: #9B4E46;
     font-weight: bold;
     transition: color 0.3s ease-in-out;
 }
 
 .bag-not-empty:hover {
-    color: #B99064;
+    color: #B35F56;
     font-weight: bold;
     transition: color 0.3s ease-in-out;
 }

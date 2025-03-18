@@ -47,7 +47,7 @@
     <title>Soap Co' {% block extra_title %}{% endblock %}</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header class="container-fluid fixed-top">
         <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-lg-0 text-center text-lg-left">
@@ -167,10 +167,26 @@
 
     {% block page_header %}
     {% endblock %}
+    <main class="flex-grow-1">
+        {% block content %}
+        {% endblock %}
+    </main>
 
-    {% block content %}
-    {% endblock %}
 
+    <footer class="custom-footer text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-0">© 2025 Ribble Valley Soap Co. All rights reserved.</p>
+            <p class="mb-0">
+                <a href="" class="text-white">Privacy Policy</a> |
+                <a href="" class="text-white">Terms & Conditions</a>
+            </p>
+            <p class="mb-0">
+                Follow us:
+                <a href="https://facebook.com" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+            </p>
+        </div>
+    </footer>
     {% block postloadjs %}
     <script>
         document.addEventListener("DOMContentLoaded", function () {
