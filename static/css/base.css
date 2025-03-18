@@ -97,7 +97,8 @@ body {
 }
 
 .sort-btn,
-.profile-btn {
+.profile-btn,
+.category-btn {
     background: #9B4E46 !important;
     color: white !important;
 }
@@ -107,7 +108,10 @@ body {
 .sort-btn:active,
 .profile-btn:hover,
 .profile-btn:focus,
-.profile-btn:active {
+.profile-btn:active,
+.category-btn:focus,
+.category-btn:hover,
+.category-btn:active {
     background: #B55A50 !important;
     color: white !important;
     box-shadow: 0 0 10px rgba(155, 78, 70, 0.5);

@@ -53,6 +53,7 @@ def all_products(request):
         'search_term': query,
         'current_categories': categories,
         'current_category_display_name': current_category_display_name,
+        'categories': Category.objects.all(),
     }
 
     return render(request, 'products/products.html', context)
