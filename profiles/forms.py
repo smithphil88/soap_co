@@ -16,7 +16,7 @@ class UserProfileForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         # Ensure choices are properly loaded
-        self.fields['default_country'].choices = CountryField().choices  
+        self.fields['default_country'].choices = CountryField().choices
 
         placeholders = {
             'default_phone_number': 'Phone Number',
