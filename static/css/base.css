@@ -77,12 +77,38 @@ body {
     color: black;
 }
 
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 450px;
+    /* Adjust as needed */
+}
+
 .card-img-top {
-    max-width: 100%;
-    width: 250px;
-    height: 250px;
+    width: 100px;
+    height: 500px;
+    /* Increased size for better visibility */
     object-fit: cover;
     border-radius: 10px;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Ensures proper spacing */
+}
+
+.card-title {
+    flex-grow: 1;
+    /* Forces the title to take up space */
+}
+
+.card-footer {
+    margin-top: auto;
+    /* Pushes the footer to the bottom */
 }
 
 .ingredient-img {
