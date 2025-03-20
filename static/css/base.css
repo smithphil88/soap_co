@@ -31,9 +31,7 @@ body {
 
 .dropdown-menu .dropdown-item:hover {
     background-color: #F7F5F3 !important;
-    /* Light gray background */
     color: #9B4E46 !important;
-    /* Bootstrap primary blue */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -41,12 +39,9 @@ body {
 .dropdown-item {
     background-color: #9B4E46 !important;
     color: #F7F5F3 !important;
-    /* White background */
     border: 1px solid #ddd;
-    /* Light border */
     border-radius: 5px;
 }
-
 
 .shop-now-button {
     background: black !important;
@@ -162,7 +157,8 @@ body {
     box-shadow: 0 0 10px rgba(155, 78, 70, 0.5);
 }
 
-.btn-custom-primary {
+.btn-custom-primary,
+.checkout-btn {
     display: inline-block;
     background-color: #9B4E46;
     color: #F7F5F3;
@@ -173,10 +169,31 @@ body {
     text-decoration: none;
 }
 
-.btn-custom-primary:hover {
+.btn-custom-primary:hover,
+.checkout-btn:hover {
     background-color: #B55A50;
+    color: #F7F5F3;
     border-color: #B55A50;
     box-shadow: 0 0 10px rgba(155, 78, 70, 0.5);
+    text-decoration: none;
+}
+
+.keep-shopping-btn {
+    background-color: #2F434C;
+    color: #F7F5F3;
+    border: 2px solid #2F434C;
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.keep-shopping-btn:hover {
+    background-color: #3E5965;
+    border-color: #3E5965;
+    text-decoration: none;
+    color: #F7F5F3;
+    box-shadow: 0 0 10px rgba(143, 138, 137, 0.5);
 }
 
 .btn-custom-secondary {
