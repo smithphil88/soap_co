@@ -29,6 +29,25 @@ body {
     width: fit-content;
 }
 
+.dropdown-menu .dropdown-item:hover {
+    background-color: #F7F5F3 !important;
+    /* Light gray background */
+    color: #9B4E46 !important;
+    /* Bootstrap primary blue */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-menu,
+.dropdown-item {
+    background-color: #9B4E46 !important;
+    color: #F7F5F3 !important;
+    /* White background */
+    border: 1px solid #ddd;
+    /* Light border */
+    border-radius: 5px;
+}
+
+
 .shop-now-button {
     background: black !important;
     color: #F7F5F3 !important;
