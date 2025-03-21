@@ -75,7 +75,7 @@ def add_to_bag(request, item_id):
 
 def update_bag(request, item_id):
     """ Update the quantity of the specified product in the shopping bag """
-    
+
     product = Product.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
@@ -106,7 +106,7 @@ def update_bag(request, item_id):
         elif total_items < 5 and soap_id in bag:
             del bag[soap_id]
             message_list.append(f'You no longer qualify for a free {free_soap.name}. It has been removed.')
-    
+
     except Product.DoesNotExist:
         pass  # Free soap does not exist
 
@@ -138,21 +138,16 @@ def remove_from_bag(request, item_id):
             free_soap = Product.objects.get(name="Pendle Moor (Free)")
             soap_id = str(free_soap.id)
 
-            # Remove free soap if no paid products remain
-            if total_items == 0 and soap_id in bag:
+            # Remove the free soap if the total falls below 5
+            if total_items < 5 and soap_id in bag:
                 del bag[soap_id]
-                messages.warning(request, f'Your cart is empty. The free {free_soap.name} has also been removed.')
+                messages.warning(request, f'You no longer qualify for a free {free_soap.name}. It has been removed.')
 
         except Product.DoesNotExist:
             pass
 
         request.session['bag'] = bag
         request.session.modified = True
-
-        # If cart is empty, redirect user to home/shop page
-        if not bag:
-            messages.warning(request, "Your shopping bag is empty. Start shopping to proceed to checkout!")
-            return redirect('home')  # Change 'home' to your shop page URL
 
         return redirect('view_bag')
 
