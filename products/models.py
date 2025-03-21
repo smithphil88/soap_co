@@ -36,6 +36,9 @@ class Product(models.Model):
     image = CloudinaryField('image', null=True, blank=True)
     ingredients = models.ManyToManyField(
         Ingredient, related_name="products", blank=True)
+    is_bundle = models.BooleanField(default=False)
+    bundle_items = models.ManyToManyField(
+        'self', blank=True, symmetrical=False)
 
     def __str__(self):
         return self.name

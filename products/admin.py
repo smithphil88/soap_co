@@ -24,13 +24,29 @@ class ProductAdmin(admin.ModelAdmin):
         'name',
         'category',
         'price',
+        'is_bundle',
         'image',
         'weight',
     )
 
-    inlines = [ProductGalleryInline]
+    list_filter = ('category', 'is_bundle')  # Allow filtering by bundles
     ordering = ('name',)
     filter_horizontal = ('ingredients',)
+
+    inlines = [ProductGalleryInline]
+
+    def get_fields(self, request, obj=None):
+        """ Show bundle_items field only if the product is a bundle """
+        fields = ['name', 'category', 'price', 'is_bundle', 'image', 'weight']
+        if obj and obj.is_bundle:
+            fields.append('bundle_items')
+        return fields
+
+    def formfield_for_manytomany(self, db_field, request, **kwargs):
+        """ Restrict bundle_items to non-bundle products only """
+        if db_field.name == "bundle_items":
+            kwargs["queryset"] = Product.objects.filter(is_bundle=False)
+        return super().formfield_for_manytomany(db_field, request, **kwargs)
 
 
 class CategoryAdmin(admin.ModelAdmin):
