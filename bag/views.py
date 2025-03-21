@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 
 from products.models import Product
 from django.http import JsonResponse
@@ -30,10 +29,6 @@ def view_bag(request):
 
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
-    if not request.user.is_authenticated:
-        messages.warning(
-            request, "You need an account to add items to your bag. Please log in or register.")
-        return redirect(f'/accounts/login/?next={request.path}')
 
     product = Product.objects.get(pk=item_id)
 
