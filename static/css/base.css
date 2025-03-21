@@ -23,6 +23,11 @@ body {
 
 .home-title {
     color: #F7F5F3 !important;
+    background-color: #9B4E46 !important;
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
 }
 
 .main-logo-link {

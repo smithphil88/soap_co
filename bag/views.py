@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from products.models import Product
 from django.http import JsonResponse
@@ -10,14 +11,14 @@ def view_bag(request):
     """ A view to return the shopping bag page with free soap offer check """
 
     bag = request.session.get('bag', {})
-    total_items = sum(bag.values())  # Count total items in bag
-    free_soap_eligible = total_items >= 5  # Check eligibility
+    total_items = sum(bag.values())
+    free_soap_eligible = total_items >= 5
 
     free_soap = None
     try:
         free_soap = Product.objects.get(name="Pendle Moor")
     except Product.DoesNotExist:
-        free_soap_eligible = False  # Don't show the offer if the soap is missing
+        free_soap_eligible = False
 
     context = {
         'free_soap_eligible': free_soap_eligible,
@@ -29,6 +30,10 @@ def view_bag(request):
 
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
+    if not request.user.is_authenticated:
+        messages.warning(
+            request, "You need an account to add items to your bag. Please log in or register.")
+        return redirect(f'/accounts/login/?next={request.path}')
 
     product = Product.objects.get(pk=item_id)
 
@@ -43,20 +48,19 @@ def add_to_bag(request, item_id):
         bag[item_id] = quantity
         messages.success(request, f'Added {product.name} to your bag')
 
-    # Calculate total items in the bag
     total_items = sum(bag.values())
 
-    # Check if the customer qualifies for a free "Pendle Moor" soap
     try:
         free_soap = Product.objects.get(name="Pendle Moor")
         soap_id = str(free_soap.id)
 
-        if total_items >= 5 and soap_id not in bag:  # Ensure only one free soap is added
+        if total_items >= 5 and soap_id not in bag:
             bag[soap_id] = 1
             messages.success(request, f'🎉 You qualified for a free {free_soap.name}! It has been added to your bag.')
 
     except Product.DoesNotExist:
-        messages.warning(request, "The free soap offer is currently unavailable.")
+        messages.warning(
+            request, "The free soap offer is currently unavailable.")
 
     request.session['bag'] = bag
     request.session.modified = True
@@ -68,27 +72,27 @@ def update_bag(request, item_id):
 
     try:
         product = Product.objects.get(pk=item_id)
-        quantity = int(request.POST.get('quantity', 1))  # Get quantity from POST
+        quantity = int(request.POST.get('quantity', 1))
         bag = request.session.get('bag', {})
 
         if quantity > 0:
-            bag[item_id] = quantity  # Update the item quantity
+            bag[item_id] = quantity
             messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
         else:
-            bag.pop(item_id, None)  # Remove item if quantity is 0
+            bag.pop(item_id, None)
             messages.success(request, f'Added {product.name} to your bag')
 
         request.session['bag'] = bag
-        request.session.modified = True  # Ensure session updates
+        request.session.modified = True
 
-        return redirect('view_bag')  # Redirect to shopping bag page
+        return redirect('view_bag')
 
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)
 
 
 def remove_from_bag(request, item_id):
-    """ Remove an item from the shopping bag and update free soap eligibility """
+    """ Remove item from the shopping bag and update free soap eligibility """
 
     try:
         product = Product.objects.get(pk=item_id)
@@ -98,10 +102,8 @@ def remove_from_bag(request, item_id):
             del bag[item_id]
             messages.success(request, f'Removed {product.name} from your bag')
 
-        # Recalculate total items
         total_items = sum(bag.values())
 
-        # If total items drop below 5, remove the free soap
         try:
             free_soap = Product.objects.get(name="Pendle Moor")
             soap_id = str(free_soap.id)
@@ -111,10 +113,10 @@ def remove_from_bag(request, item_id):
                 messages.warning(request, f'You no longer qualify for a free {free_soap.name}. It has been removed.')
 
         except Product.DoesNotExist:
-            pass  # No action needed if the free soap is not found
+            pass
 
         request.session['bag'] = bag
-        request.session.modified = True  # Save session updates
+        request.session.modified = True
 
         return redirect('view_bag')
 
