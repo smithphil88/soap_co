@@ -43,6 +43,12 @@
                         </td>
                         <td>£{{ item.product.price }}</td>
                         <td class="py-3 w-25">
+                            {% if item.product.name == "Pendle Moor (Free)" %}
+                            <!-- Free item: Disable quantity input -->
+                            <input class="form-control form-control-sm qty_input" type="number" name="quantity"
+                                value="{{ item.quantity }}" min="1" max="1" readonly>
+                            {% else %}
+                            <!-- Normal item: Show update form -->
                             <form class="form update-form" method="POST" action="{% url 'update_bag' item.item_id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
@@ -70,6 +76,7 @@
                                 </div>
                             </form>
                             <a class="update-link text-info"><small>Update</small></a>
+                            {% endif %}
                         </td>
                         <td>£{{ item.subtotal|floatformat:2 }}</td>
                         <td>

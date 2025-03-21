@@ -34,7 +34,9 @@ def cache_checkout_data(request):
 
 def checkout(request):
     if not request.user.is_authenticated:
-        messages.warning(request, "You must be logged in to access checkout. Please sign in or register.")
+        messages.warning(
+            request,
+            "You must be logged in to access checkout. Please sign in or register.")
         return redirect(f"/accounts/login/?next={request.path}")
 
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
