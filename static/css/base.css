@@ -376,6 +376,45 @@ body {
     /* Slight zoom effect */
 }
 
+/* -------------------------------- Mission page stylings */
+
+.carousel-caption {
+    background-color: #2F434C;
+    /* Dark semi-transparent background */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.eco-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.eco-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.eco-list .icon {
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    margin-top: 3px;
+}
+
+.eco-list .text {
+    flex: 1;
+    word-break: break-word;
+    /* Ensures text wraps properly */
+}
+
+strong {
+    white-space: nowrap;
+    /* Prevents bold text from breaking into two lines */
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
