@@ -37,7 +37,9 @@ class ProductAdmin(admin.ModelAdmin):
 
     def get_fields(self, request, obj=None):
         """ Show bundle_items field only if the product is a bundle """
-        fields = ['name', 'category', 'price', 'is_bundle', 'image', 'weight']
+        fields = [
+            'name', 'category', 'price', 'is_bundle', 'image', 'weight',
+            'description']
         if obj and obj.is_bundle:
             fields.append('bundle_items')
         return fields

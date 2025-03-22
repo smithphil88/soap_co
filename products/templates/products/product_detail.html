@@ -46,7 +46,11 @@
                 <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                 <p class="mb-0 text-small text-muted">{{ product.weight }}g</p>
                 <p class="text-muted">{{ product.category.display_name }}</p>
+                {% if product.is_bundle %}
+                <p class="text-small">{{ product.description|linebreaks }}</p>
+                {% else %}
                 <p class="mb-0 text-small">{{ product.description }}</p>
+                {% endif %}
                 {% if product.is_bundle %}
                 <div class="bundle-container mt-4">
                     <h4>Included in this Bundle:</h4>
