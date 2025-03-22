@@ -154,7 +154,7 @@
                 </ul>
             </div>
         </div>
-        {% if request.resolver_match.url_name == "home" %}
+        {% if request.resolver_match.url_name == "home" or request.resolver_match.url_name == "products" %}
         <div class="row text-center offer text-dark py-2">
             <div class="col">
                 <h4 class="my-0 offer">Buy 5 products and get a free 'Pendle Moor' soap!</h4>

@@ -295,6 +295,17 @@ body {
     color: #F7F5F3;
 }
 
+.bundle-container a {
+    color: #B38656;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.bundle-container a:hover {
+    color: #8a5a3b;
+    text-decoration: underline;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
