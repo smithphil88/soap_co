@@ -47,7 +47,8 @@ def add_to_bag(request, item_id):
         message_list.append(f'Added {product.name} to your bag')
 
     # Calculate total items excluding the free soap
-    total_items = sum(qty for key, qty in bag.items() if Product.objects.get(pk=key).name != "Pendle Moor (Free)")
+    total_items = sum(
+        qty for key, qty in bag.items() if Product.objects.get(pk=key).name != "Pendle Moor (Free)")
 
     try:
         free_soap = Product.objects.get(name="Pendle Moor (Free)")
@@ -132,7 +133,10 @@ def remove_from_bag(request, item_id):
             messages.success(request, f'Removed {product.name} from your bag')
 
         # Recalculate total items excluding the free soap
-        total_items = sum(qty for key, qty in bag.items() if Product.objects.get(pk=key).name != "Pendle Moor (Free)")
+        total_items = sum(
+            qty for key,
+            qty in bag.items() if Product.objects.get(pk=key).name !=
+            "Pendle Moor (Free)")
 
         try:
             free_soap = Product.objects.get(name="Pendle Moor (Free)")
@@ -141,8 +145,11 @@ def remove_from_bag(request, item_id):
             # Remove the free soap if the total falls below 5
             if total_items < 5 and soap_id in bag:
                 del bag[soap_id]
-                messages.warning(request, f'You no longer qualify for a free {free_soap.name}. It has been removed.')
-
+                messages.warning(
+                    request,
+                    f"You no longer qualify for a free {free_soap.name}. "
+                    "It has been removed."
+                )
         except Product.DoesNotExist:
             pass
 
