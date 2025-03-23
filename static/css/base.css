@@ -164,7 +164,8 @@ body {
 
 .btn-custom-primary,
 .checkout-btn,
-.checkout-success-btn {
+.checkout-success-btn,
+.products-btn {
     display: inline-block;
     background-color: #9B4E46;
     color: #F7F5F3;
@@ -177,7 +178,8 @@ body {
 
 .btn-custom-primary:hover,
 .checkout-btn:hover,
-.checkout-success-btn:hover {
+.checkout-success-btn:hover,
+.products-btn:hover {
     background-color: #B55A50;
     color: #F7F5F3;
     border-color: #B55A50;
