@@ -13,7 +13,6 @@ def all_products(request):
     """ A view to show all products, including sorting and search queries """
     products = Product.objects.exclude(name="Pendle Moor (Free)")
 
-    products = Product.objects.all()
     query = None
     categories = None
     sort = None
