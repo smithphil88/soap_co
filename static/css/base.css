@@ -158,7 +158,8 @@ body {
 }
 
 .btn-custom-primary,
-.checkout-btn {
+.checkout-btn,
+.checkout-success-btn {
     display: inline-block;
     background-color: #9B4E46;
     color: #F7F5F3;
@@ -170,7 +171,8 @@ body {
 }
 
 .btn-custom-primary:hover,
-.checkout-btn:hover {
+.checkout-btn:hover,
+.checkout-success-btn:hover {
     background-color: #B55A50;
     color: #F7F5F3;
     border-color: #B55A50;
@@ -178,7 +180,8 @@ body {
     text-decoration: none;
 }
 
-.keep-shopping-btn {
+.keep-shopping-btn,
+.adjust-bag-btn {
     background-color: #2F434C;
     color: #F7F5F3;
     border: 2px solid #2F434C;
@@ -188,7 +191,8 @@ body {
     text-decoration: none;
 }
 
-.keep-shopping-btn:hover {
+.keep-shopping-btn:hover,
+.adjust-bag-btn:hover {
     background-color: #3E5965;
     border-color: #3E5965;
     text-decoration: none;
