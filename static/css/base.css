@@ -319,6 +319,11 @@ body {
     text-decoration: underline;
 }
 
+#mainProductImage {
+    display: block !important;
+    visibility: visible !important;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {

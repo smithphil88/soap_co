@@ -16,8 +16,9 @@
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
                 {% if product.image %}
-                <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                <a id="mainImageLink" href="{{ product.image.url }}" target="_blank">
+                    <img id="mainProductImage" class="card-img-top img-fluid" src="{{ product.image.url }}"
+                        alt="{{ product.name }}" data-default-image="{{ product.image.url }}">
                 </a>
                 {% else %}
                 <a href="">
@@ -30,9 +31,9 @@
                 <h4>More Images</h4>
                 <div class="gallery-images d-flex flex-wrap">
                     {% for image in product.gallery.all %}
-                    <a href="{{ image.image.url }}" target="_blank">
+                    <a href="javascript:void(0);" class="gallery-thumbnail" data-image="{{ image.image.url }}">
                         <img src="{{ image.image.url }}" alt="Gallery image for {{ product.name }}"
-                            class="gallery-thumbnail img-thumbnail m-1">
+                            class="img-thumbnail m-1">
                     </a>
                     {% endfor %}
                 </div>
@@ -139,5 +140,50 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("Gallery script loaded");
+
+        const mainImage = document.getElementById("mainProductImage");
+        const mainImageLink = document.getElementById("mainImageLink");
+        const thumbnails = document.querySelectorAll(".gallery-thumbnail");
+
+        if (!mainImage || !mainImageLink) {
+            console.error("Main image or link not found in the DOM.");
+            return;
+        }
+
+        // Store the original image source and link to reset later
+        const originalImageSrc = mainImage.src;
+        const originalImageLink = mainImageLink.href;
+
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener("click", function () {
+                const newImageSrc = this.dataset.image;
+
+                if (newImageSrc) {
+                    mainImage.src = newImageSrc; // Update main image
+                    mainImageLink.href = newImageSrc; // Update link to full image
+                    mainImage.alt = "Updated Image"; // Update alt text
+                }
+            });
+        });
+
+        // Restore the original image when clicking the main image, without opening a new tab
+        mainImageLink.addEventListener("click", function (event) {
+            if (mainImage.src !== originalImageSrc) {
+                event.preventDefault(); // Stop the link from opening
+                mainImage.src = originalImageSrc;
+                mainImageLink.href = originalImageLink;
+                mainImage.alt = "Original Product Image";
+            }
+        });
+
+        // Ensure the main image is never empty or hidden
+        mainImage.addEventListener("error", function () {
+            mainImage.src = originalImageSrc;
+        });
+    });
+</script>
 {% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}

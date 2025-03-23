@@ -4,9 +4,12 @@ from django_countries.fields import CountryField
 from django_countries.widgets import CountrySelectWidget
 from .models import UserProfile
 
+
 class UserProfileForm(forms.ModelForm):
-    first_name = forms.CharField(required=True, max_length=150, label="First Name")
-    last_name = forms.CharField(required=True, max_length=150, label="Last Name")
+    first_name = forms.CharField(
+        required=True, max_length=150, label="First Name")
+    last_name = forms.CharField(
+        required=True, max_length=150, label="Last Name")
 
     class Meta:
         model = UserProfile
@@ -16,14 +19,13 @@ class UserProfileForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        user = kwargs.pop('user', None)  # Get the user instance
+        user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
 
         if user:
             self.fields['first_name'].initial = user.first_name
             self.fields['last_name'].initial = user.last_name
 
-        # Ensure country field choices are properly loaded
         self.fields['default_country'].choices = CountryField().choices
 
         placeholders = {
