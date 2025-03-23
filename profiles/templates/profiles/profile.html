@@ -49,6 +49,10 @@
                 {{ form.default_postcode|as_crispy_field }}
                 {{ form.default_country|as_crispy_field }}
 
+                <a href="{% url 'delete_account' %}" class="btn btn-danger mt-3">
+                    Delete My Account
+                </a>
+
                 <button class="btn profile-btn text-uppercase float-right">Update Information</button>
             </form>
         </div>

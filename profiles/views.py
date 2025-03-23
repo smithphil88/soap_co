@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth import logout
 from .models import UserProfile
 from .forms import UserProfileForm
 
@@ -52,3 +52,18 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_account(request):
+    """ Allow the user to delete their account """
+    if request.method == "POST":
+        user = request.user
+        logout(request)  # Log out the user before deleting
+        user.delete()  # Delete user from database
+        messages.success(
+            request, "Your account has been deleted successfully.")
+        return redirect("home")  # Redirect to home page or another page
+
+    template = "profiles/delete_account.html"
+    return render(request, template)
