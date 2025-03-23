@@ -30,6 +30,17 @@ body {
     border-radius: 5px;
 }
 
+.home-title h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    font-weight: normal;
+    opacity: 0.9;
+}
+
 .main-logo-link {
     width: fit-content;
 }
@@ -101,6 +112,9 @@ body {
     flex-direction: column;
     height: 100%;
     min-height: 450px;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .card-img-top {
@@ -330,11 +344,6 @@ body {
     text-decoration: underline;
 }
 
-#mainProductImage {
-    display: block !important;
-    visibility: visible !important;
-}
-
 .no-products-message {
     display: flex;
     flex-direction: column;
@@ -384,12 +393,18 @@ body {
 .image-container {
     display: flex;
     align-items: flex-start;
-    /* Align images to the top */
+}
+
+#mainProductImage {
+    display: block !important;
+    visibility: visible !important;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 5px;
 }
 
 .main-product-image {
     width: 300px;
-    /* Adjust size as needed */
     height: auto;
     border-radius: 5px;
 }
@@ -397,12 +412,10 @@ body {
 .product-gallery {
     display: flex;
     flex-direction: column;
-    /* Stack images vertically */
 }
 
 .gallery-thumbnail {
     width: 80px;
-    /* Adjust thumbnail size */
     height: 80px;
     object-fit: cover;
     border-radius: 5px;
@@ -411,16 +424,28 @@ body {
 
 .gallery-thumbnail:hover {
     transform: scale(1.1);
-    /* Slight zoom effect */
 }
 
 /* -------------------------------- Mission page stylings */
 
 .carousel-caption {
     background-color: #2F434C;
-    /* Dark semi-transparent background */
     padding: 10px;
     border-radius: 5px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 10px;
 }
 
 .eco-list {
@@ -445,12 +470,10 @@ body {
 .eco-list .text {
     flex: 1;
     word-break: break-word;
-    /* Ensures text wraps properly */
 }
 
 strong {
     white-space: nowrap;
-    /* Prevents bold text from breaking into two lines */
 }
 
 /* -------------------------------- Media Queries */
