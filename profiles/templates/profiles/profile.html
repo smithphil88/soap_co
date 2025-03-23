@@ -25,7 +25,7 @@
     </div>
     <div class="row">
         <div class="col-12 col-lg-6">
-            <p class="text-muted">My details</p>
+            <p class="text-muted">My Details</p>
             <form method="POST" action="{% url 'profile' %}">
                 {% csrf_token %}
 
@@ -49,11 +49,14 @@
                 {{ form.default_postcode|as_crispy_field }}
                 {{ form.default_country|as_crispy_field }}
 
-                <a href="{% url 'delete_account' %}" class="btn btn-danger mt-3">
-                    Delete My Account
-                </a>
-
-                <button class="btn profile-btn text-uppercase float-right">Update Information</button>
+                <div class="d-flex justify-content-between mt-3">
+                    <a href="{% url 'delete_account' %}" class="btn btn-danger">
+                        Delete My Account
+                    </a>
+                    <button class="btn profile-btn text-uppercase">
+                        Update Information
+                    </button>
+                </div>
             </form>
         </div>
         <div class="col-12 col-lg-6">
