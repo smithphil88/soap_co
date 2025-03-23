@@ -101,13 +101,11 @@ body {
     flex-direction: column;
     height: 100%;
     min-height: 450px;
-    /* Adjust as needed */
 }
 
 .card-img-top {
     width: 100px;
     height: 500px;
-    /* Increased size for better visibility */
     object-fit: cover;
     border-radius: 10px;
 }
@@ -117,17 +115,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* Ensures proper spacing */
 }
 
 .card-title {
     flex-grow: 1;
-    /* Forces the title to take up space */
 }
 
 .card-footer {
     margin-top: auto;
-    /* Pushes the footer to the bottom */
 }
 
 .ingredient-img {
@@ -238,6 +233,24 @@ body {
     text-decoration: none;
 }
 
+.toast-btn {
+    background-color: #9B4E46;
+    color: #F7F5F3;
+    border: 2px solid #2F434C;
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.toast-btn:hover {
+    background: #B55A50;
+    color: #F7F5F3;
+    outline: none;
+    box-shadow: 0 0 10px rgba(155, 78, 70, 0.5);
+    text-decoration: none;
+}
+
 #backToTop {
     position: fixed;
     background: #9B4E46;
@@ -320,7 +333,7 @@ body {
 }
 
 .toast-capper {
-    height: 2px;
+    height: 5px;
 }
 
 .bag-empty {

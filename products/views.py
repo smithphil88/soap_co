@@ -26,9 +26,11 @@ def all_products(request):
             sort = request.GET['sort']
             direction = request.GET.get('direction', 'asc')
             if sort == 'name':
-                products = products.order_by('name' if direction == 'asc' else '-name')
+                products = products.order_by(
+                    'name' if direction == 'asc' else '-name')
             elif sort == 'price':
-                products = products.order_by('price' if direction == 'asc' else '-price')
+                products = products.order_by(
+                    'price' if direction == 'asc' else '-price')
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
@@ -40,14 +42,17 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(
+                name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
             if not products.exists():
-                messages.warning(request, "No products found matching your search.")
+                messages.warning(
+                    request, "No products found matching your search.")
 
     context = {
         'products': products,

@@ -50,14 +50,16 @@
     {% block extra_js %}
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            var toastElement = document.querySelector(".toast");
-            if (toastElement) {
+            var toastElements = document.querySelectorAll(".toast");
+
+            toastElements.forEach(function (toastElement) {
                 var toast = new bootstrap.Toast(toastElement);
                 toast.show();
+
                 setTimeout(function () {
                     toast.hide();
                 }, 5000);
-            }
+            });
         });
     </script>
     {% endblock %}
@@ -191,18 +193,33 @@
     </main>
 
 
-    <footer class="custom-footer text-center py-3 mt-5">
-        <div class="container">
-            <p class="mb-0">© 2025 Ribble Valley Soap Co. All rights reserved.</p>
-            <p class="mb-0">
-                <a href="" class="text-white">Privacy Policy</a> |
-                <a href="" class="text-white">Terms & Conditions</a>
-            </p>
-            <p class="mb-0">
-                Follow us:
-                <a href="https://facebook.com" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-            </p>
+    <footer class="custom-footer text-white py-3 mt-5 w-100">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Left-aligned address -->
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <p class="mb-0">Ribble Valley Soap Co.</p>
+                    <p class="mb-0">Rose Mill, Whalley Road</p>
+                    <p class="mb-0">Hurst Green, Lancashire, BB7 9QJ</p>
+                    <p class="mb-0">Email: info@ribblevalleysoap.co.uk</p>
+                </div>
+
+                <!-- Centered copyright and links -->
+                <div class="col-md-4 text-center">
+                    <p class="mb-0">© 2025 Ribble Valley Soap Co. All rights reserved.</p>
+                    <p class="mb-0">
+                        <a href="#" class="text-white">Privacy Policy</a> |
+                        <a href="#" class="text-white">Terms & Conditions</a>
+                    </p>
+                </div>
+
+                <!-- Right-aligned social links -->
+                <div class="col-md-4 text-center">
+                    <p class="mb-0">Follow us:</p>
+                    <a href="https://facebook.com" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
     {% block postloadjs %}
