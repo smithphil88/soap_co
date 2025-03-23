@@ -328,11 +328,6 @@ body {
     color: white !important;
 }
 
-.custom-footer {
-    background-color: #2F434C;
-    color: #F7F5F3;
-}
-
 .bundle-container a {
     color: #B38656;
     font-weight: bold;
@@ -351,6 +346,27 @@ body {
     justify-content: center;
     height: 300px;
     /* Adjust as needed */
+}
+
+/* ------------------------------- footer */
+
+.custom-footer {
+    background-color: #2F434C;
+    color: #F7F5F3;
+}
+
+.custom-footer a {
+    color: #F7F5F3;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-footer a:hover {
+    color: #2F434C;
+    background-color: #F7F5F3;
+    text-decoration: none;
 }
 
 /* ------------------------------- bootstrap toasts */
