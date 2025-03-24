@@ -22,7 +22,7 @@
 
     {% if bag_items %}
     <div class="row">
-        <div class="col">
+        <div class="table-responsive">
             <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
                     <tr>
@@ -52,8 +52,8 @@
                             <form class="form update-form" method="POST" action="{% url 'update_bag' item.item_id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
+                                    <div class="input-group d-flex flex-md-row flex-column align-items-center">
+                                        <div class="input-group-prepend mb-md-0 mb-1">
                                             <button class="decrement-qty rounded-0" data-item_id="{{ item.item_id }}"
                                                 id="decrement-qty_{{ item.item_id }}">
                                                 <span>
@@ -61,10 +61,10 @@
                                                 </span>
                                             </button>
                                         </div>
-                                        <input class="form-control form-control-sm qty_input" type="number"
+                                        <input class="form-control form-control-sm qty_input text-center" type="number"
                                             name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                             data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}" readonly>
-                                        <div class="input-group-append">
+                                        <div class="input-group-append mt-md-0 mt-1">
                                             <button class="increment-qty rounded-0" data-item_id="{{ item.item_id }}"
                                                 id="increment-qty_{{ item.item_id }}">
                                                 <span>
@@ -98,7 +98,7 @@
 
             <h4 class="text-right">Total: £{{ grand_total }}</h4>
 
-            <div class="mt-4">
+            <div class="d-flex justify-content-between mt-3">
                 <a href="{% url 'products' %}" class="keep-shopping-btn">
                     <i class="fas fa-chevron-left"></i> Keep Shopping
                 </a>

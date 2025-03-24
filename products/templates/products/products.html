@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="row justify-content-center mt-2 mb-3">
-        <div class="col-md-8 text-center">
+        <div class="col-md-8 text-center sort-container">
             <strong>Sort by:</strong>
             <a href="?sort=name&direction=asc{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}"
                 class="btn sort-btn{% if sort == 'name' and direction == 'asc' %}active{% endif %}">
@@ -51,7 +51,7 @@
         </div>
     </div>
     <div class="row justify-content-center mb-3">
-        <div class="col-md-8 text-center">
+        <div class="col-md-8 text-center filter-container">
             <strong>Filter by Category:</strong>
             <a href="{% url 'products' %}"
                 class="btn category-btn {% if not request.GET.category %}{% else %}{% endif %}">
