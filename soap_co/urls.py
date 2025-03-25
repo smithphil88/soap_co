@@ -14,5 +14,5 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-handler404 = 'ecommerce_project.views.handler404'
-handler500 = 'ecommerce_project.views.handler500'
+handler404 = 'soap_co.views.handler404'
+handler500 = 'soap_co.views.handler500'
