@@ -336,6 +336,24 @@ body {
     border-color: black !important;
 }
 
+/* Ensure the quantity input and buttons are the same size */
+.decrement-qty,
+.increment-qty,
+.qty_input {
+    height: 38px !important;
+    width: 38px;
+    font-size: 16px;
+    text-align: center;
+    padding: 0;
+    line-height: 38px;
+}
+
+/* Prevent input from stretching too wide */
+.qty_input {
+    max-width: 50px;
+    min-width: 50px;
+}
+
 .increment-qty:active .icon i,
 .decrement-qty:active .icon i {
     color: white !important;
@@ -485,7 +503,6 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    font-size: 1.1rem;
     line-height: 1.5;
 }
 
@@ -534,6 +551,8 @@ strong {
     }
 }
 
+/* -------------------------------- Media Queries for small mobiles */
+
 @media (max-width: 375px) {
     .offer h4 {
         font-size: 1rem;
@@ -544,7 +563,6 @@ strong {
 @media (max-width: 375px) {
     body {
         padding-top: 100px;
-        /* Adjust for mobile only */
     }
 }
 
@@ -610,10 +628,9 @@ strong {
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 425px) {
     .ingredient-img {
         width: 100px;
-        /* Reduce size */
         height: 100px;
     }
 }
@@ -662,72 +679,122 @@ strong {
 }
 
 @media (max-width: 375px) {
-    .table-responsive {
-        overflow-x: auto;
-        /* Enable horizontal scrolling */
-        -webkit-overflow-scrolling: touch;
-        /* Smooth scrolling for iOS */
-    }
-
-    .table td,
-    .table th {
-        white-space: nowrap;
-        /* Prevents text wrapping */
-        font-size: 14px;
-        /* Reduce font size for better fit */
-    }
-
-    .img-thumbnail {
-        width: 40px !important;
-        height: 40px !important;
-        /* Reduce image size for better spacing */
-    }
-
-}
-
-@media (max-width: 768px) {
-
-    /* Ensure the whole quantity selector stacks properly */
     .input-group {
         flex-direction: column;
+        /* Stack buttons & input vertically */
         align-items: center;
-        width: 100%;
-        gap: 5px;
-        /* Adds a small gap between input and buttons */
+        /* Center align everything */
+        max-width: 90px;
+        /* Keep it compact */
+        margin: auto;
+        /* Center it */
     }
 
-    /* Make sure the input stays centered and sized properly */
     .qty_input {
-        width: 50px;
-        min-width: 50px;
-        text-align: center;
-        font-size: 16px;
-        padding: 5px;
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 14px;
+        /* Smaller text */
     }
 
-    /* Center align the buttons */
-    .input-group-prepend,
-    .input-group-append {
-        width: auto;
-        display: flex;
-        justify-content: center;
-    }
-
-    /* Adjust button sizes for better visibility */
     .increment-qty,
     .decrement-qty {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 12px;
+        /* Adjust button size */
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0;
     }
 }
 
 @media (max-width: 769px) {
     .order-summary-image {
         display: none;
+    }
+}
+
+/* -------------------------------- Media Queries for tablet 768px */
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .sort-container,
+    .filter-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        /* Adds spacing between buttons */
+    }
+
+    .sort-btn,
+    .category-btn {
+        width: 70%;
+        /* Full width on small screens */
+        font-size: 0.85rem;
+        /* Slightly smaller text */
+        padding: 8px 10px;
+        /* Less padding to save space */
+        text-align: center;
+        /* Ensure text stays centered */
+    }
+
+    .sort-container strong,
+    .filter-container strong {
+        width: 100%;
+        /* Ensure labels don’t get squashed */
+        text-align: center;
+        margin-bottom: 5px;
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .ingredient-img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* -------------------------------- Media Queries for large mobile 425px */
+
+@media (max-width: 425px) {
+    body {
+        padding-top: 160px;
+    }
+}
+
+@media (max-width: 425px) {
+    .home-title h1 {
+        font-size: 1rem;
+    }
+
+    .home-title .tagline {
+        font-size: 1rem;
+    }
+
+    .shop-now-button {
+        font-size: 1rem !important;
+        padding: 0.8rem 1.2rem !important;
+        /* Adjust button padding */
+    }
+}
+
+@media (max-width: 425px) {
+    .custom-footer p {
+        font-size: 0.9rem;
+        /* Adjust for smaller screens */
+    }
+
+    .custom-footer a {
+        font-size: 1rem;
+        /* Adjust icon size */
     }
 }
