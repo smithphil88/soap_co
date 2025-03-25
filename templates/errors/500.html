@@ -5,17 +5,15 @@
 {% block extra_title %}500 Error{% endblock %}
 
 {% block content %}
-<div class="dashboard">
-    <div class="dashboard__form form__delete warning__msg">
-        <h1 class="dashboard__main--name">500</h1>
-        <div class="access__image">
-            <img src="" alt="Access denied warning image">
-        </div>
-        <div class="warning__msg">Oh! It seems that there are some internal problems with the server.</div>
-        <div class="">
-            <a href="{% url 'products' %}" aria-label="Go to Tags page" class="btn btn__getstarted">
-                <i class="fas fa-store"></i>
-                Back to Store
+<div class="container h-100 d-flex align-items-center justify-content-center">
+    <div class="text-center home-title">
+        <h1 class="mb-3">Oops! Something Went Wrong (500)</h1>
+        <h5 class="tagline">It seems we’ve encountered an issue processing your request.</h5>
+        <p class="lead">Don’t worry, our team is on it. In the meantime, you can browse our eco-friendly, handmade soaps
+            below.</p>
+        <div class="my-4">
+            <a href="{% url 'products' %}" class="shop-now-button btn btn-lg py-3">
+                Browse Our Products
             </a>
         </div>
     </div>
