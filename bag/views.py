@@ -46,10 +46,10 @@ def add_to_bag(request, item_id):
     total_items = sum(
         qty for key,
         qty in bag.items()
-        if Product.objects.get(pk=key).name != "Pendle Moor (Free)")
+        if Product.objects.get(pk=key).name != "Pendle Moor (Gift)")
 
     try:
-        free_soap = Product.objects.get(name="Pendle Moor (Free)")
+        free_soap = Product.objects.get(name="Pendle Moor (Gift)")
         soap_id = str(free_soap.id)
 
         if total_items >= 5 and soap_id not in bag:
@@ -93,10 +93,10 @@ def update_bag(request, item_id):
 
     total_items = sum(
         qty for key, qty in bag.items()
-        if Product.objects.get(pk=key).name != "Pendle Moor (Free)")
+        if Product.objects.get(pk=key).name != "Pendle Moor (Gift)")
 
     try:
-        free_soap = Product.objects.get(name="Pendle Moor (Free)")
+        free_soap = Product.objects.get(name="Pendle Moor (Gift)")
         soap_id = str(free_soap.id)
 
 
@@ -139,10 +139,10 @@ def remove_from_bag(request, item_id):
         total_items = sum(
             qty for key,
             qty in bag.items() if Product.objects.get(pk=key).name !=
-            "Pendle Moor (Free)")
+            "Pendle Moor (Gift)")
 
         try:
-            free_soap = Product.objects.get(name="Pendle Moor (Free)")
+            free_soap = Product.objects.get(name="Pendle Moor (Gift)")
             soap_id = str(free_soap.id)
 
             if total_items < 5 and soap_id in bag:
