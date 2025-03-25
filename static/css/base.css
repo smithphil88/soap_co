@@ -683,42 +683,51 @@ strong {
         /* Reduce image size for better spacing */
     }
 
-    .qty_input {
-        width: 50px !important;
-        min-width: 50px;
-        /* Ensures input box is not too small */
-        text-align: center;
-        /* Reduce width of quantity input */
-    }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 768px) {
+
+    /* Ensure the whole quantity selector stacks properly */
     .input-group {
         flex-direction: column;
-        /* Stack buttons and input field vertically */
         align-items: center;
         width: 100%;
+        gap: 5px;
+        /* Adds a small gap between input and buttons */
     }
 
+    /* Make sure the input stays centered and sized properly */
+    .qty_input {
+        width: 50px;
+        min-width: 50px;
+        text-align: center;
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    /* Center align the buttons */
     .input-group-prepend,
     .input-group-append {
-        width: 100%;
-        /* Full width buttons */
+        width: auto;
         display: flex;
         justify-content: center;
     }
 
+    /* Adjust button sizes for better visibility */
     .increment-qty,
     .decrement-qty {
-        width: 30px;
-        /* Maintain button size */
-        height: 30px;
-        font-size: 16px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
     }
+}
 
-    .qty_input {
-        width: 60px;
-        /* Ensure input box is not too wide */
-        text-align: center;
+@media (max-width: 769px) {
+    .order-summary-image {
+        display: none;
     }
 }

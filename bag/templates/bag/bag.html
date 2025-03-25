@@ -52,21 +52,27 @@
                             <form class="form update-form" method="POST" action="{% url 'update_bag' item.item_id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <div class="input-group d-flex flex-md-row flex-column align-items-center">
-                                        <div class="input-group-prepend mb-md-0 mb-1">
-                                            <button class="decrement-qty rounded-0" data-item_id="{{ item.item_id }}"
-                                                id="decrement-qty_{{ item.item_id }}">
+                                    <div class="input-group d-flex flex-column flex-md-row align-items-center gap-2">
+                                        <!-- Minus button -->
+                                        <div class="input-group-prepend">
+                                            <button class="decrement-qty rounded-0 btn btn-outline-secondary"
+                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                 <span>
                                                     <i class="fas fa-minus fa-sm"></i>
                                                 </span>
                                             </button>
                                         </div>
-                                        <input class="form-control form-control-sm qty_input text-center" type="number"
-                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
+
+                                        <!-- Quantity input -->
+                                        <input
+                                            class="form-control form-control-sm qty_input text-center w-100 w-md-auto"
+                                            type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                             data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}" readonly>
-                                        <div class="input-group-append mt-md-0 mt-1">
-                                            <button class="increment-qty rounded-0" data-item_id="{{ item.item_id }}"
-                                                id="increment-qty_{{ item.item_id }}">
+
+                                        <!-- Plus button -->
+                                        <div class="input-group-append">
+                                            <button class="increment-qty rounded-0 btn btn-outline-secondary"
+                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                 <span>
                                                     <i class="fas fa-plus fa-sm"></i>
                                                 </span>
