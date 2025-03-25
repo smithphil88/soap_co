@@ -2,12 +2,10 @@ from django.contrib import admin
 from django.utils.html import format_html
 from .models import Category, Product, Ingredient, ProductGallery
 
-# Register your models here.
-
 
 class ProductGalleryInline(admin.TabularInline):
     model = ProductGallery
-    extra = 3  # Allows adding 3 extra images per product
+    extra = 3
 
     def image_preview(self, obj):
         if obj.image:
@@ -29,7 +27,7 @@ class ProductAdmin(admin.ModelAdmin):
         'weight',
     )
 
-    list_filter = ('category', 'is_bundle')  # Allow filtering by bundles
+    list_filter = ('category', 'is_bundle')
     ordering = ('name',)
     filter_horizontal = ('ingredients',)
 

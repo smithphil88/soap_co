@@ -3,7 +3,6 @@ from django.contrib import messages
 
 from products.models import Product
 from django.http import JsonResponse
-# Create your views here.
 
 
 def view_bag(request):
@@ -35,10 +34,8 @@ def add_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
-    # Store messages to avoid duplicates
     message_list = []
 
-    # Add/update product quantity in bag
     if item_id in bag:
         bag[item_id] += quantity
         message_list.append(f'Updated {product.name} quantity')
@@ -46,9 +43,10 @@ def add_to_bag(request, item_id):
         bag[item_id] = quantity
         message_list.append(f'Added {product.name} to your bag')
 
-    # Calculate total items excluding the free soap
     total_items = sum(
-        qty for key, qty in bag.items() if Product.objects.get(pk=key).name != "Pendle Moor (Free)")
+        qty for key,
+        qty in bag.items()
+        if Product.objects.get(pk=key).name != "Pendle Moor (Free)")
 
     try:
         free_soap = Product.objects.get(name="Pendle Moor (Free)")
@@ -56,19 +54,22 @@ def add_to_bag(request, item_id):
 
         if total_items >= 5 and soap_id not in bag:
             bag[soap_id] = 1
-            message_list.append(f'🎉 You qualified for a free {free_soap.name}! It has been added to your bag.')
+            message = f'🎉 You qualified for a free {free_soap.name}! '
+            message += 'It has been added to your bag.'
+            message_list.append(message)
 
         elif total_items < 5 and soap_id in bag:
             del bag[soap_id]
-            message_list.append(f'You no longer qualify for a free {free_soap.name}. It has been removed.')
+            message = f'You no longer qualify for a free {free_soap.name}. '
+            message += 'It has been removed.'
+            message_list.append(message)
 
     except Product.DoesNotExist:
-        pass  # No free product exists
+        pass
 
     request.session['bag'] = bag
     request.session.modified = True
 
-    # Add all messages at once
     messages.success(request, " ".join(message_list))
 
     return redirect(redirect_url)
@@ -81,7 +82,7 @@ def update_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
-    message_list = []  # Store messages to avoid duplicates
+    message_list = []
 
     if quantity > 0:
         bag[item_id] = quantity
@@ -90,31 +91,34 @@ def update_bag(request, item_id):
         bag.pop(item_id, None)
         message_list.append(f'Removed {product.name} from your bag')
 
-    # Recalculate total items excluding the free soap
-    total_items = sum(qty for key, qty in bag.items() if Product.objects.get(pk=key).name != "Pendle Moor (Free)")
+    total_items = sum(
+        qty for key, qty in bag.items()
+        if Product.objects.get(pk=key).name != "Pendle Moor (Free)")
 
     try:
         free_soap = Product.objects.get(name="Pendle Moor (Free)")
         soap_id = str(free_soap.id)
 
-        # Check if user qualifies for the free soap
-        if total_items >= 5:
-            if soap_id not in bag:  # Only show message if it's a new addition
-                bag[soap_id] = 1
-                message_list.append(f'🎉 You qualified for a free {free_soap.name}! It has been added to your bag.')
 
-        # Remove free soap if total items drop below 5
+        if total_items >= 5:
+            if soap_id not in bag:
+                bag[soap_id] = 1
+                message = f'🎉 You qualified for a free {free_soap.name}! '
+                message += 'It has been added to your bag.'
+                message_list.append(message)
+
         elif total_items < 5 and soap_id in bag:
             del bag[soap_id]
-            message_list.append(f'You no longer qualify for a free {free_soap.name}. It has been removed.')
+            message = f'You no longer qualify for a free {free_soap.name}. '
+            message += 'It has been removed.'
+            message_list.append(message)
 
     except Product.DoesNotExist:
-        pass  # Free soap does not exist
+        pass
 
     request.session['bag'] = bag
     request.session.modified = True
 
-    # Add all messages at once
     if message_list:
         messages.success(request, " ".join(message_list))
 
@@ -132,7 +136,6 @@ def remove_from_bag(request, item_id):
             del bag[item_id]
             messages.success(request, f'Removed {product.name} from your bag')
 
-        # Recalculate total items excluding the free soap
         total_items = sum(
             qty for key,
             qty in bag.items() if Product.objects.get(pk=key).name !=
@@ -142,7 +145,6 @@ def remove_from_bag(request, item_id):
             free_soap = Product.objects.get(name="Pendle Moor (Free)")
             soap_id = str(free_soap.id)
 
-            # Remove the free soap if the total falls below 5
             if total_items < 5 and soap_id in bag:
                 del bag[soap_id]
                 messages.warning(

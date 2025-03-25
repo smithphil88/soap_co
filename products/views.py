@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
-from .models import Product, Ingredient, Category
+from .models import Product, Category
 from .forms import ProductForm
 
 # Create your views here.
@@ -69,14 +69,7 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
-    print(f"Product: {product.name}")
-
     ingredients = product.ingredients.all()
-    if ingredients.exists():
-        for ingredient in ingredients:
-            print(f"Ingredient: {ingredient.name}, Image URL: {ingredient.image.url if ingredient.image else 'No Image'}")
-    else:
-        print("No ingredients linked to this product.")
 
     context = {
         'product': product,

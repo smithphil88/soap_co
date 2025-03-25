@@ -59,11 +59,11 @@ def delete_account(request):
     """ Allow the user to delete their account """
     if request.method == "POST":
         user = request.user
-        logout(request)  # Log out the user before deleting
-        user.delete()  # Delete user from database
+        logout(request)
+        user.delete()
         messages.success(
             request, "Your account has been deleted successfully.")
-        return redirect("home")  # Redirect to home page or another page
+        return redirect("home")
 
     template = "profiles/delete_account.html"
     return render(request, template)
