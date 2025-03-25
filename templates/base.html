@@ -42,20 +42,7 @@
     {% endblock %}
 
     {% block extra_js %}
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var toastElements = document.querySelectorAll(".toast");
 
-            toastElements.forEach(function (toastElement) {
-                var toast = new bootstrap.Toast(toastElement);
-                toast.show();
-
-                setTimeout(function () {
-                    toast.hide();
-                }, 5000);
-            });
-        });
-    </script>
     {% endblock %}
 </head>
 
@@ -223,15 +210,21 @@
     {% block postloadjs %}
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            let backToTop = document.getElementById("backToTop");
+            // Initialize Bootstrap Toasts with Auto-hide
+            var toastElements = document.querySelectorAll(".toast");
+            toastElements.forEach(function (toastElement) {
+                var toast = new bootstrap.Toast(toastElement, {
+                    autohide: true,
+                    delay: 5000
+                });
+                toast.show();
+            });
 
+            // Back to Top Button
+            let backToTop = document.getElementById("backToTop");
             if (backToTop) {
                 window.onscroll = function () {
-                    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                        backToTop.style.display = "block";
-                    } else {
-                        backToTop.style.display = "none";
-                    }
+                    backToTop.style.display = (document.documentElement.scrollTop > 300) ? "block" : "none";
                 };
 
                 backToTop.addEventListener("click", function () {
@@ -241,14 +234,6 @@
                     });
                 });
             }
-        });
-    </script>
-    <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function () {
-            let toastElements = document.querySelectorAll('.toast');
-            toastElements.forEach(toast => {
-                new bootstrap.Toast(toast).show();
-            });
         });
     </script>
     {% endblock %}
