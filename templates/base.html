@@ -51,18 +51,19 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <!-- Logo -->
-                <a href="{% url 'home' %}" class="navbar-brand main-logo-link">
+                <a href="{% url 'home' %}" class="navbar-brand main-logo-link" aria-label="Go to homepage">
                     <span class="logo-font text-black my-0">Ribble Valley Soap Co.</span>
                 </a>
 
                 <!-- Search Bar (Hidden on Small Screens) -->
                 <form method="GET" action="{% url 'products' %}" class="form-inline mx-auto d-none d-lg-flex"
-                    style="width: 40%;">
+                    style="width: 40%;" aria-label="Search the site">
                     <div class="input-group w-100">
                         <input class="form-control border border-black rounded-0" type="text" name="q"
-                            placeholder="Search the site">
+                            placeholder="Search the site" aria-label="Search products">
                         <div class="input-group-append">
-                            <button class="btn btn-black border border-black rounded-0" type="submit">
+                            <button class="btn btn-black border border-black rounded-0" type="submit"
+                                aria-label="Submit search">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
@@ -71,7 +72,7 @@
 
                 <!-- Hamburger Button for Small Screens -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
-                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -82,7 +83,7 @@
                         {% if request.user.is_authenticated %}
                         <li class="list-inline-item dropdown">
                             <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                                aria-haspopup="true" aria-expanded="false" aria-label="Items menu">
                                 <div class="text-center">
                                     <div><i class="fa-solid fa-soap fa-lg"></i></div>
                                     <p class="my-0">Items</p>
@@ -99,7 +100,8 @@
                         {% endif %}
                         <!-- Mission -->
                         <li class="nav-item text-center">
-                            <a class="nav-link text-black" href="{% url 'mission' %}">
+                            <a class="nav-link text-black" href="{% url 'mission' %}"
+                                aria-label="Visit our mission page">
                                 <div><i class="fas fa-leaf fa-lg"></i></div>
                                 <p class="my-0">Mission</p>
                             </a>
@@ -108,7 +110,8 @@
                         <!-- My Account Dropdown -->
                         <li class="nav-item dropdown d-flex flex-column align-items-center text-center">
                             <a class="nav-link dropdown-toggle text-black" href="#" id="accountDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                aria-label="Account options">
                                 <i class="fas fa-user fa-lg"></i>
                                 <p class="my-0">My Account</p>
                             </a>
@@ -129,7 +132,7 @@
                         <!-- Bag -->
                         <li class="nav-item text-center">
                             <a class="nav-link text-black {% if grand_total %}bag-not-empty{% else %}bag-empty{% endif %}"
-                                href="{% url 'view_bag' %}">
+                                href="{% url 'view_bag' %}" aria-label="View shopping bag">
                                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                                 <p class="my-0">£{{ grand_total|default:"0.00"|floatformat:2 }}</p>
                             </a>
@@ -200,8 +203,10 @@
                 <div class="col-md-4 text-center">
                     <p class="mb-0">Follow us:</p>
                     <div>
-                        <a href="https://facebook.com" class="mx-2"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://instagram.com" class="mx-2"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" class="mx-2" aria-label="Visit our Facebook page"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" class="mx-2" aria-label="Visit our Instagram page"><i
+                                class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
