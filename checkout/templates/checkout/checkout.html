@@ -19,9 +19,9 @@
                             <div class="col-2 mb-1 order-summary-image">
                                 <a href="{% url 'product_detail' item.product.id %}">
                                     {% if item.product.image %}
-                                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}"">
                                     {% else %}
-                                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    <img class=" w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                     {% endif %}
                                 </a>
                             </div>
@@ -84,6 +84,7 @@
 
                     <!-- Payment Section -->
                     <h5 class="mt-4 mb-3">Payment Details</h5>
+                    <label for="card-element">Credit or Debit Card Details</label>
                     <div class="mb-3" id="card-element"></div>
                     <div class="text-danger mb-3" id="card-errors" role="alert"></div>
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
@@ -100,7 +101,7 @@
         </div>
     </div>
 </div>
-<div id="loading-overlay">
+<div id="loading-overlay" aria-live="polite">
     <h1 class="text-light logo-font loading-spinner">
         <span class="icon">
             <i class="fas fa-3x fa-sync-alt fa-spin"></i>
