@@ -51,7 +51,6 @@ I used the tool [JShint](https://jshint.com/) to validate my js code.
 
 ![Quantity Selectors](documentation\testing\jshint\quantity.png)
 
-
 ## Browser Compatability
 
 I have tested my site on different browsers to check for any compatability issues.
@@ -70,7 +69,6 @@ I have tested my site on different devices and screen sizes to check for any res
 - [Mobile Responsive Report](documentation\testing\responsive\responsive-design-report.pdf)
 - [Tablet Responsive Report](documentation\testing\responsive\responsive-design-report-tablet.pdf)
 
-
 ## Lighthouse
 
 I've tested my deployed project using the Lighthouse tool to check for issues.
@@ -78,7 +76,6 @@ I've tested my deployed project using the Lighthouse tool to check for issues.
 There are warnings in my deployed site and many of these were issues with cookies. Due to time restraints I did not have enough time to spend on this aspect to remedy it.
 
 - [Lighthouse Report](documentation\testing\lighthouse\rbs-lighthouse-report.pdf)
-
 
 ## Manual Testing
 
@@ -188,7 +185,6 @@ I have thoroughly tested each aspect of the website as shown below.
 | | Click on Sign Up button | If form is valid, user redirects to email confirmation page| Pass | |
 | | Click on Sign Up button | User is asked to verify email address | Pass | |
 | | User confirms and follows link in email | User is redirected to Home page | Pass | A success toast pops |
-
 
 ## User Stories
 
