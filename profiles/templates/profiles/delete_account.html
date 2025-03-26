@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="card delete-card mt-5">
+<div class="card delete-card mt-5" aria-label="Delete account confirmation">
     <div class="container-fluid text-center my-5">
-        <h2>Delete Account</h2>
-        <p class="text-danger">Warning: This action cannot be undone!</p>
-        <p>Are you sure you want to delete your account? This will permanently remove all your data.</p>
+        <h2 aria-label="Delete Account Confirmation">Delete Account</h2>
+        <p class="text-danger" aria-live="assertive">Warning: This action cannot be undone!</p>
+        <p aria-describedby="delete-warning">Are you sure you want to delete your account? This will permanently remove
+            all your data.</p>
 
         <form method="POST" action="{% url 'delete_account' %}">
             {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Yes, Delete My Account</button>
-            <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-danger" aria-label="Delete account permanently">Yes, Delete My
+                Account</button>
+            <a href="{% url 'profile' %}" class="btn btn-secondary"
+                aria-label="Cancel account deletion and return to profile">Cancel</a>
         </form>
     </div>
 </div>

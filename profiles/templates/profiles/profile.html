@@ -19,14 +19,14 @@
     <div class="row">
         <div class="col">
             <hr>
-            <h2 class="logo-font mb-4">My Profile</h2>
+            <h2 class="logo-font mb-4" aria-label="User Profile Page">My Profile</h2>
             <hr>
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-lg-6">
             <p class="text-muted mt-2">My Details</p>
-            <form method="POST" action="{% url 'profile' %}">
+            <form method="POST" action="{% url 'profile' %}" aria-labelledby="my-details-form">
                 {% csrf_token %}
 
                 {{ form.non_field_errors }}
@@ -49,19 +49,20 @@
                 {{ form.default_country|as_crispy_field }}
 
                 <div class="d-flex justify-content-between mt-3">
-                    <a href="{% url 'delete_account' %}" class="btn btn-danger">
+                    <a href="{% url 'delete_account' %}" class="btn btn-danger"
+                        aria-label="Delete user account permanently">
                         Delete My Account
                     </a>
-                    <button class="btn profile-btn text-uppercase">
+                    <button class="btn profile-btn text-uppercase" aria-label="Update profile information">
                         Update Information
                     </button>
                 </div>
             </form>
         </div>
         <div class="col-12 col-lg-6">
-            <p class="text-muted mt-2">Order History</p>
+            <p class="text-muted mt-2" aria-label="Order History">Order History</p>
             <div class="order-history table-responsive">
-                <table class="table table-sm table-borderless">
+                <table class="table table-sm table-borderless" aria-describedby="order-history-description">
                     <thead>
                         <tr>
                             <th>Order Number</th>
@@ -74,13 +75,14 @@
                         {% for order in orders %}
                         <tr>
                             <td>
-                                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}"
+                                    aria-label="Order details for {{ order.order_number }}">
                                     {{ order.order_number|truncatechars:6 }}
                                 </a>
                             </td>
                             <td>{{ order.date }}</td>
                             <td>
-                                <ul class="list-unstyled">
+                                <ul class="list-unstyled" aria-label="Order items">
                                     {% for item in order.lineitems.all %}
                                     <li class="small">
                                         {{ item.product.name }} x{{ item.quantity }}
