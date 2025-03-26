@@ -48,6 +48,7 @@ I used the tool [JShint](https://jshint.com/) to validate my js code.
 ![Back to top](documentation\testing\jshint\back-to-top.png)
 
 - JS for the quantity selectors
+
 ![Quantity Selectors](documentation\testing\jshint\quantity.png)
 
 
@@ -57,16 +58,17 @@ I have tested my site on different browsers to check for any compatability issue
 
 | Browser | Screenshot | Notes |
 | --- | --- | --- |
-| Chrome | ![screenshot](documentation/browser/chrome.png) | Works as expected |
-
+| Chrome | ![Chrome](documentation\testing\compatability\chrome.png) | Works as expected |
+| Edge | ![Edge](documentation\testing\compatability\edge.png) | Works as expected |
+| Brave | ![Brave](documentation\testing\compatability\brave.png) | Works as expected |
+| Firefox | ![Firefox](documentation\testing\compatability\firefox.png) | Works as expected |
 
 ## Responsiveness
 
-I have tested my site on different devices and screen sizes to check for any responsiveness problems.
+I have tested my site on different devices and screen sizes to check for any responsiveness problems. I used a combination of devtools and [responsive viewer](https://responsiveviewer.org/) to ensure that the site works effectively on multiple mobiles and tablets. 
 
-| Device | Screen |Screenshot | Notes |
-| --- | --- | --- | --- |
-| Mobile (Devtools)| Home page | ![screenshot](documentation/responsiveness/mobile-devtool.png) | Works as expected |
+- [Mobile Responsive Report](documentation\testing\responsive\responsive-design-report.pdf)
+- [Tablet Responsive Report](documentation\testing\responsive\responsive-design-report-tablet.pdf)
 
 
 ## Lighthouse
