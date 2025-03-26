@@ -93,6 +93,9 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
+            if 'image' not in request.FILES:
+                messages.error(
+                    request, 'An image is required to add a product.')
             messages.error(
                 request,
                 'Failed to add product. Please ensure the form is valid.')

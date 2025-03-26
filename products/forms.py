@@ -3,6 +3,11 @@ from .models import Product, Category
 
 
 class ProductForm(forms.ModelForm):
+    """ Form to add/edit products """
+    image = forms.ImageField(
+        required=True,
+        error_messages={'required': 'An image is required to add a product.'}
+    )
 
     class Meta:
         model = Product
