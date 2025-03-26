@@ -6,12 +6,12 @@ Return back to the [README.md](README.md) file.
 
 I used the [HTML W3C Validator](https://validator.w3.org) to validate my HTML files.
 
-- [Bag app HTML validation](documentation\testing\html-validation\rbs-bag-validation.pdf)
-- [Base templates HTML validation](documentation\testing\html-validation\rbs-base-validation.pdf)
-- [Checkout app HTML validation](documentation\testing\html-validation\rbs-checkout-validation.pdf)
-- [Profile app HTML validation](documentation\testing\html-validation\rbs-profile-validation.pdf)
-- [Home app HTML validation](documentation\testing\html-validation\rbs-home-validation.pdf)
-- [Products app HTML validation](documentation\testing\html-validation\rbs-products-validation.pdf)
+- [Bag app HTML validation](documentation/testing/html-validation/rbs-bag-validation.pdf)
+- [Base templates HTML validation](documentation/testing/html-validation/rbs-base-validation.pdf)
+- [Checkout app HTML validation](documentation/testing/html-validation/rbs-checkout-validation.pdf)
+- [Profile app HTML validation](documentation/testing/html-validation/rbs-profile-validation.pdf)
+- [Home app HTML validation](documentation/testing/html-validation/rbs-home-validation.pdf)
+- [Products app HTML validation](documentation/testing/html-validation/rbs-products-validation.pdf)
 
 ## CSS
 
