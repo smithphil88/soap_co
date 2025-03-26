@@ -22,7 +22,9 @@
     <div class="row">
         <div class="col text-center">
             {% if current_category_display_name %}
-            <h2 class="category-title">{{ current_category_display_name }}</h2>
+            <h2 class="category-title"
+                aria-label="Current product category: {{ current_category_display_name|default:'All Products' }}">
+                {{ current_category_display_name }}</h2>
             {% else %}
             <h2 class="category-title">All Products</h2>
             {% endif %}
@@ -30,22 +32,26 @@
         </div>
     </div>
     <div class="row justify-content-center mt-2 mb-3">
-        <div class="col-md-8 text-center sort-container">
-            <strong>Sort by:</strong>
+        <div class="col-md-8 text-center sort-container" aria-labelledby="sortOptions">
+            <strong id="sortOptions">Sort by:</strong>
             <a href="?sort=name&direction=asc{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}"
-                class="btn sort-btn{% if sort == 'name' and direction == 'asc' %}active{% endif %}">
+                class="btn sort-btn{% if sort == 'name' and direction == 'asc' %}active{% endif %}"
+                aria-label="Sort products by name in ascending order">
                 Name (A-Z)
             </a>
             <a href="?sort=name&direction=desc{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}"
-                class="btn sort-btn{% if sort == 'name' and direction == 'desc' %}active{% endif %}">
+                class="btn sort-btn{% if sort == 'name' and direction == 'desc' %}active{% endif %}"
+                aria-label="Sort products by name in descending order">
                 Name (Z-A)
             </a>
             <a href="?sort=price&direction=asc{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}"
-                class="btn sort-btn{% if sort == 'price' and direction == 'asc' %}active{% endif %}">
+                class="btn sort-btn{% if sort == 'price' and direction == 'asc' %}active{% endif %}"
+                aria-label="Sort products by price from low to high">
                 Price (Low to High)
             </a>
             <a href="?sort=price&direction=desc{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}"
-                class="btn sort-btn{% if sort == 'price' and direction == 'desc' %}active{% endif %}">
+                class="btn sort-btn{% if sort == 'price' and direction == 'desc' %}active{% endif %}"
+                aria-label="Sort products by price from high to low">
                 Price (High to Low)
             </a>
         </div>
@@ -54,12 +60,14 @@
         <div class="col-md-8 text-center filter-container">
             <strong>Filter by Category:</strong>
             <a href="{% url 'products' %}"
-                class="btn category-btn {% if not request.GET.category %}{% else %}{% endif %}">
+                class="btn category-btn {% if not request.GET.category %}{% else %}{% endif %}"
+                aria-label="View all products without filtering by category">
                 All
             </a>
             {% for category in categories %}
             <a href="?category={{ category.name }}"
-                class="btn category-btn {% if request.GET.category == category.name %}{% else %}{% endif %}">
+                class="btn category-btn {% if request.GET.category == category.name %}{% else %}{% endif %}"
+                aria-label="Filter products by category: {{ category.display_name }}">
                 {{ category.display_name }}
             </a>
             {% endfor %}
@@ -70,20 +78,25 @@
         {% for product in products %}
         <div class="col d-flex mb-4">
             <div class="card h-100 d-flex flex-column">
-                <a href="{% url 'product_detail' product.id %}">
+                <a href="{% url 'product_detail' product.id %}" aria-label="View details of {{ product.name }}">
                     <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
                 </a>
                 <div class="card-body d-flex flex-column justify-content-between">
-                    <p class="mb-0">{{ product.name }}</p>
-                    <p class="text-muted">{{ product.category.display_name }}</p>
+                    <p class="mb-0" aria-label="Product name: {{ product.name }}">{{ product.name }}</p>
+                    <p class="text-muted" aria-label="Product category: {{ product.category.display_name }}">
+                        {{ product.category.display_name }}</p>
                 </div>
                 <div class="card-footer bg-white text-left">
-                    <p class="lead font-weight-bold">£{{ product.price }}</p>
-                    <p class="text-muted">{{ product.weight }}g</p>
+                    <p class="lead font-weight-bold" aria-label="Product price: £{{ product.price }}">
+                        £{{ product.price }}</p>
+                    <p class="text-muted" aria-label="Product weight: {{ product.weight }} grams">{{ product.weight }}g
+                    </p>
                     {% if request.user.is_superuser %}
                     <small>
-                        <a href="{% url 'edit_product' product.id %}">Edit</a> |
-                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                        <a href="{% url 'edit_product' product.id %}"
+                            aria-label="Edit product: {{ product.name }}">Edit</a> |
+                        <a class="text-danger" href="{% url 'delete_product' product.id %}"
+                            aria-label="Delete product: {{ product.name }}">Delete</a>
                     </small>
                     {% endif %}
                 </div>
@@ -92,16 +105,17 @@
         {% endfor %}
         {% else %}
         <!-- No Products Message -->
-        <div class="row justify-content-center align-items-center">
+        <div class="row justify-content-center align-items-center" role="alert" aria-live="assertive">
             <div class="col-12 text-center">
-                <h3 class="text-danger">No products found</h3>
-                <p class="text-muted">Try adjusting your search or filters.</p>
-                <a href="{% url 'products' %}" class="btn sort-btn">View All Products</a>
+                <h3 class="text-danger" aria-label="No products found">No products found</h3>
+                <p class="text-muted" aria-label="Suggested action: Try adjusting your search or filters">Try adjusting
+                    your search or filters.</p>
+                <a href="{% url 'products' %}" class="btn sort-btn" aria-label="View all products">View All Products</a>
             </div>
         </div>
         {% endif %}
     </div>
-    <button id="backToTop" class="btn btn-primary">
+    <button id="backToTop" class="btn btn-primary" aria-label="Scroll back to the top of the page">
         ↑ Back to Top
     </button>
 </div>

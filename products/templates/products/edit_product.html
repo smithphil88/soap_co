@@ -24,12 +24,14 @@
     <div class="row">
         <div class="col-12 col-md-6">
             <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2"
-                enctype="multipart/form-data">
+                enctype="multipart/form-data" aria-label="Edit product form for {{ product.name }}">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <div class="text-right">
-                    <a class="cancel-edit-products-btn" href="{% url 'products' %}">Cancel</a>
-                    <button class="edit-products-btn" type="submit">Update Product</button>
+                    <a class="cancel-edit-products-btn" href="{% url 'products' %}"
+                        aria-label="Cancel editing and return to product list">Cancel</a>
+                    <button class="edit-products-btn" type="submit" aria-label="Update the product details">Update
+                        Product</button>
                 </div>
             </form>
         </div>

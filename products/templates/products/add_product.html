@@ -23,12 +23,15 @@
 
     <div class="row">
         <div class="col-12 col-md-6">
-            <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data"
+                aria-label="Add a new product form">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <div class="text-right">
-                    <a class="cancel-add-products-btn" href="{% url 'products' %}">Cancel</a>
-                    <button class="add-products-btn" type="submit">Add Product</button>
+                    <a class="cancel-add-products-btn" href="{% url 'products' %}"
+                        aria-label="Cancel and return to products page">Cancel</a>
+                    <button class="add-products-btn" type="submit" aria-label="Submit to add new product">Add
+                        Product</button>
                 </div>
             </form>
         </div>
