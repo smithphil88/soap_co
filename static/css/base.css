@@ -337,8 +337,7 @@ body {
 }
 
 .decrement-qty,
-.increment-qty,
-.qty_input {
+.increment-qty {
     height: 38px !important;
     width: 38px;
     font-size: 16px;

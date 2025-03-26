@@ -18,15 +18,37 @@ I used the [HTML W3C Validator](https://validator.w3.org) to validate my HTML fi
 I used the [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate my CSS files.
 
 ![CSS Validation](documentation\testing\css-validation\css-validation.png)
-![Checkout CSS Validation](documentation\testing\css-validation\checkout css.png)
 
 ## Python
 
 I have used the [PEP8 CI Python Linter](https://pep8ci.herokuapp.com) to validate my Python files.
 
-| File | Screenshot | Notes |
-| --- | --- | --- |
-| asgi.py | ![screenshot](documentation/validation/pep8/asgi.py.png) | Pass: No Errors |
+- [Settings app PEP8 validation](documentation\testing\pep8\rbs-pep8-validation-settings.pdf)
+- [Home app PEP8 validation](documentation\testing\pep8\rbs-pep8-validation-home.pdf)
+- [Products app PEP8 validation](documentation\testing\pep8\rbs-pep8-validation-products.pdf)
+- [Bag app PEP8 validation](documentation\testing\pep8\rbs-pep8-validation-bag.pdf)
+- [Checkout app PEP8 validation](documentation\testing\pep8\rbs-pep8-validation-checkout.pdf)
+- [Profile app PEP8 validation](documentation\testing\pep8\rbs-pep8-validation-profiles.pdf)
+
+## JS 
+
+I used the tool [JShint](https://jshint.com/) to validate my js code.
+
+- JS linked with the Stripe Elements.
+
+![Stripe Elements JS](documentation\testing\jshint\stripe-elements-js.png)
+- An update button to alter product quantity in bag.
+
+![Update button in bag](documentation\testing\jshint\update-button-in-bag.png)
+-  JS for the product image gallery on the product detail page
+
+![Product Image Galley](documentation\testing\jshint\image-gallery.png)
+- JS for back to top button and toast timeout functions
+
+![Back to top](documentation\testing\jshint\back-to-top.png)
+
+- JS for the quantity selectors
+![Quantity Selectors](documentation\testing\jshint\quantity.png)
 
 
 ## Browser Compatability

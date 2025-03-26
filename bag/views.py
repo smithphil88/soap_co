@@ -99,7 +99,6 @@ def update_bag(request, item_id):
         free_soap = Product.objects.get(name="Pendle Moor (Gift)")
         soap_id = str(free_soap.id)
 
-
         if total_items >= 5:
             if soap_id not in bag:
                 bag[soap_id] = 1
