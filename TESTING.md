@@ -17,18 +17,18 @@ I used the [HTML W3C Validator](https://validator.w3.org) to validate my HTML fi
 
 I used the [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate my CSS files.
 
-![CSS Validation](documentation\testing\css-validation\css-validation.png)
+![CSS Validation](documentation/testing/css-validation/css-validation.png)
 
 ## Python
 
 I have used the [PEP8 CI Python Linter](https://pep8ci.herokuapp.com) to validate my Python files.
 
-- [Settings app PEP8 validation](documentation\testing\pep8\rbs-pep8-validation-settings.pdf)
-- [Home app PEP8 validation](documentation\testing\pep8\rbs-pep8-validation-home.pdf)
-- [Products app PEP8 validation](documentation\testing\pep8\rbs-pep8-validation-products.pdf)
-- [Bag app PEP8 validation](documentation\testing\pep8\rbs-pep8-validation-bag.pdf)
-- [Checkout app PEP8 validation](documentation\testing\pep8\rbs-pep8-validation-checkout.pdf)
-- [Profile app PEP8 validation](documentation\testing\pep8\rbs-pep8-validation-profiles.pdf)
+- [Settings app PEP8 validation](documentation/testing/pep8/rbs-pep8-validation-settings.pdf)
+- [Home app PEP8 validation](documentation/testing/pep8/rbs-pep8-validation-home.pdf)
+- [Products app PEP8 validation](documentation/testing/pep8/rbs-pep8-validation-products.pdf)
+- [Bag app PEP8 validation](documentation/testing/pep8/rbs-pep8-validation-bag.pdf)
+- [Checkout app PEP8 validation](documentation/testing/pep8/rbs-pep8-validation-checkout.pdf)
+- [Profile app PEP8 validation](documentation/testing/pep8/rbs-pep8-validation-profiles.pdf)
 
 ## JS 
 
@@ -36,20 +36,20 @@ I used the tool [JShint](https://jshint.com/) to validate my js code.
 
 - JS linked with the Stripe Elements.
 
-![Stripe Elements JS](documentation\testing\jshint\stripe-elements-js.png)
+![Stripe Elements JS](documentation/testing/jshint/stripe-elements-js.png)
 - An update button to alter product quantity in bag.
 
-![Update button in bag](documentation\testing\jshint\update-button-in-bag.png)
+![Update button in bag](documentation/testing/jshint/update-button-in-bag.png)
 -  JS for the product image gallery on the product detail page
 
-![Product Image Galley](documentation\testing\jshint\image-gallery.png)
+![Product Image Galley](documentation/testing/jshint/image-gallery.png)
 - JS for back to top button and toast timeout functions
 
-![Back to top](documentation\testing\jshint\back-to-top.png)
+![Back to top](documentation/testing/jshint/back-to-top.png)
 
 - JS for the quantity selectors
 
-![Quantity Selectors](documentation\testing\jshint\quantity.png)
+![Quantity Selectors](documentation/testing/jshint/quantity.png)
 
 ## Browser Compatability
 
@@ -57,17 +57,17 @@ I have tested my site on different browsers to check for any compatability issue
 
 | Browser | Screenshot | Notes |
 | --- | --- | --- |
-| Chrome | ![Chrome](documentation\testing\compatability\chrome.png) | Works as expected |
-| Edge | ![Edge](documentation\testing\compatability\edge.png) | Works as expected |
-| Brave | ![Brave](documentation\testing\compatability\brave.png) | Works as expected |
-| Firefox | ![Firefox](documentation\testing\compatability\firefox.png) | Works as expected |
+| Chrome | ![Chrome](documentation/testing/compatability/chrome.png) | Works as expected |
+| Edge | ![Edge](documentation/testing/compatability/edge.png) | Works as expected |
+| Brave | ![Brave](documentation/testing/compatability/brave.png) | Works as expected |
+| Firefox | ![Firefox](documentation/testing/compatability/firefox.png) | Works as expected |
 
 ## Responsiveness
 
 I have tested my site on different devices and screen sizes to check for any responsiveness problems. I used a combination of devtools and [responsive viewer](https://responsiveviewer.org/) to ensure that the site works effectively on multiple mobiles and tablets. 
 
-- [Mobile Responsive Report](documentation\testing\responsive\responsive-design-report.pdf)
-- [Tablet Responsive Report](documentation\testing\responsive\responsive-design-report-tablet.pdf)
+- [Mobile Responsive Report](documentation/testing/responsive/responsive-design-report.pdf)
+- [Tablet Responsive Report](documentation/testing/responsive/responsive-design-report-tablet.pdf)
 
 ## Lighthouse
 
@@ -75,7 +75,7 @@ I've tested my deployed project using the Lighthouse tool to check for issues.
 
 There are warnings in my deployed site and many of these were issues with cookies. Due to time restraints I did not have enough time to spend on this aspect to remedy it.
 
-- [Lighthouse Report](documentation\testing\lighthouse\rbs-lighthouse-report.pdf)
+- [Lighthouse Report](documentation/testing/lighthouse/rbs-lighthouse-report.pdf)
 
 ## Manual Testing
 
@@ -193,35 +193,35 @@ Each user story has been fulfilled.
 | EPIC | User Story | Screenshot |
 | --- | --- | --- |
 | Viewing & Navigation |  |  |
-|  | As a user I can view the items for sale, so I select an item to buy. | ![vn1](documentation\user-stories\vn1.png) |
-|  | As a user I can view items of the same type so I can find items I want efficiently. | ![vn2](documentation\user-stories\vn2.png) |
-| | As a user I can view specific detailed information about an item, so I can learn about the price, description, smell and feel. | ![vn3](documentation\user-stories\vn3.png) |
-| | As a user I can view items that belong in a bundle, so I buy products at a discounted rate. | ![vn4](documentation\user-stories\vn4.png) |
+|  | As a user I can view the items for sale, so I select an item to buy. | ![vn1](documentation/user-stories/vn1.png) |
+|  | As a user I can view items of the same type so I can find items I want efficiently. | ![vn2](documentation/user-stories/vn2.png) |
+| | As a user I can view specific detailed information about an item, so I can learn about the price, description, smell and feel. | ![vn3](documentation/user-stories/vn3.png) |
+| | As a user I can view items that belong in a bundle, so I buy products at a discounted rate. | ![vn4](documentation/user-stories/vn4.png) |
 | Registration & User Accounts |  |  |
-|  | As a user I can register for an account, so I can use the site and view my profile. | ![rua1](documentation\user-stories\rua1.png) |
-|  | As a user I can login and logout, so I can access my information and use the site. | ![rua2](documentation\user-stories\rua2.png) ![rua3](documentation\user-stories\rua3.png) |
-|  | As a user I can recover my password, so I can use my account if I forget/lose access to my account. | ![rua4](documentation\user-stories\rua4.png) |
-|  | As a user I can expect an email confirmation after registering, so I can verify my email address ensuring the safety of my account. | ![rua5](documentation\user-stories\rua5.png) ![rua6](documentation\user-stories\rua6.png) |
+|  | As a user I can register for an account, so I can use the site and view my profile. | ![rua1](documentation/user-stories/rua1.png) |
+|  | As a user I can login and logout, so I can access my information and use the site. | ![rua2](documentation/user-stories/rua2.png) ![rua3](documentation/user-stories/rua3.png) |
+|  | As a user I can recover my password, so I can use my account if I forget/lose access to my account. | ![rua4](documentation/user-stories/rua4.png) |
+|  | As a user I can expect an email confirmation after registering, so I can verify my email address ensuring the safety of my account. | ![rua5](documentation/user-stories/rua5.png) ![rua6](documentation/user-stories/rua6.png) |
 | Sorting and searching |  |  |
-|  | As a user I can sort the list of products, so I can identify specific categories of products. | ![sas1](documentation\user-stories\sas1.png) |
-|  | As a user I can search for a specific item so I can find items easier. | ![sas2](documentation\user-stories\sas2.png) |
+|  | As a user I can sort the list of products, so I can identify specific categories of products. | ![sas1](documentation/user-stories/sas1.png) |
+|  | As a user I can search for a specific item so I can find items easier. | ![sas2](documentation/user-stories/sas2.png) |
 | Purchasing and Checkout |  |  |
-|  | As a user I can select the quantity of a product, so my order is correct. | ![pc1](documentation\user-stories\pc1.png) |
-|  | As a user I can update/change items in the bag so I can make any final changes before purchasing. | ![pc2](documentation\user-stories\pc2.png) |
-|  | As a user I can enter payment information so that I can checkout without any issues. | ![pc3](documentation\user-stories\pc3.png) ![pc4](documentation\user-stories\pc4.png) |
-|  | As a user I know my details provided are safe and secure so I be confident about the purchase. | ![pc5](documentation\user-stories\pc5.png) |
-|  | As a user I can receive an order summary upon completion of an order so I can check to see if there any mistakes. | ![pc6](documentation\user-stories\pc6.png) |
+|  | As a user I can select the quantity of a product, so my order is correct. | ![pc1](documentation/user-stories/pc1.png) |
+|  | As a user I can update/change items in the bag so I can make any final changes before purchasing. | ![pc2](documentation/user-stories/pc2.png) |
+|  | As a user I can enter payment information so that I can checkout without any issues. | ![pc3](documentation/user-stories/pc3.png) ![pc4](documentation/user-stories/pc4.png) |
+|  | As a user I know my details provided are safe and secure so I be confident about the purchase. | ![pc5](documentation/user-stories/pc5.png) |
+|  | As a user I can receive an order summary upon completion of an order so I can check to see if there any mistakes. | ![pc6](documentation/user-stories/pc6.png) |
 | Admin & Business Owner |  |  |
-|  | As a site owner I can add items to product catalogue by using user-friendly front-end forms so I do not have to use the back-end admin panel. | ![abo1](documentation\user-stories\abo1.png)  |
-|  | As a site owner I can edit and update products so I know the products for sale are up to date. | ![abo2](documentation\user-stories\abo2.png) |
-|  | As a site owner I can delete a product so my inventory of items is up to date. | ![abo3](documentation\user-stories\abo3.png) ![abo4](documentation\user-stories\abo4.png) |
+|  | As a site owner I can add items to product catalogue by using user-friendly front-end forms so I do not have to use the back-end admin panel. | ![abo1](documentation/user-stories/abo1.png)  |
+|  | As a site owner I can edit and update products so I know the products for sale are up to date. | ![abo2](documentation/user-stories/abo2.png) |
+|  | As a site owner I can delete a product so my inventory of items is up to date. | ![abo3](documentation/user-stories/abo3.png) ![abo4](documentation/user-stories/abo4.png) |
 | Shopping Bag |  |  |
-|  | As a user I can add items to the shopping bag so I can keep shopping until I am ready to pay. | ![sb1](documentation\user-stories\sb1.png) |
-|  | As a user I can remove an item from the shopping bag so I can ensure that my order is accurate. | ![sb2](documentation\user-stories\sb2.png) |
-|  | As a user I can see my current total, so I can keep track of my current spend. | ![sb3](documentation\user-stories\sb3.png) |
+|  | As a user I can add items to the shopping bag so I can keep shopping until I am ready to pay. | ![sb1](documentation/user-stories/sb1.png) |
+|  | As a user I can remove an item from the shopping bag so I can ensure that my order is accurate. | ![sb2](documentation/user-stories/sb2.png) |
+|  | As a user I can see my current total, so I can keep track of my current spend. | ![sb3](documentation/user-stories/sb3.png) |
 | User Profile App |  |  |
-|  | As a user I can view and edit my profile so I can update information as and when needed. | ![upa1](documentation\user-stories\upa1.png) |
-|  | As a site owner I can organise a database of user profiles, so profile can be created/updated to the back end of the site. | ![upa2](documentation\user-stories\upa2.png) |
+|  | As a user I can view and edit my profile so I can update information as and when needed. | ![upa1](documentation/user-stories/upa1.png) |
+|  | As a site owner I can organise a database of user profiles, so profile can be created/updated to the back end of the site. | ![upa2](documentation/user-stories/upa2.png) |
 
 ## README
 
