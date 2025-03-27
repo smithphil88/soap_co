@@ -42,7 +42,7 @@ I used the tool [JShint](https://jshint.com/) to validate my js code.
 ![Update button in bag](documentation/testing/jshint/update-button-in-bag.png)
 -  JS for the product image gallery on the product detail page
 
-![Product Image Galley](documentation/testing/jshint/image-gallery.png)
+![Product Image Gallery](documentation/testing/jshint/image-gallery.png)
 - JS for back to top button and toast timeout functions
 
 ![Back to top](documentation/testing/jshint/back-to-top.png)
@@ -51,9 +51,9 @@ I used the tool [JShint](https://jshint.com/) to validate my js code.
 
 ![Quantity Selectors](documentation/testing/jshint/quantity.png)
 
-## Browser Compatability
+## Browser Compatibility
 
-I have tested my site on different browsers to check for any compatability issues.
+I have tested my site on different browsers to check for any compatibility issues.
 
 | Browser | Screenshot | Notes |
 | --- | --- | --- |
@@ -84,19 +84,19 @@ I have thoroughly tested each aspect of the website as shown below.
 | Page | User Action | Expected Result | Pass/Fail | Comments |
 | --- | --- | --- | --- | --- |
 | Navbar | | | | |
-| | Click on title in navbar | Redirection to Home page | Pass | |
+| | Click on title in navbar | Redirection to the Home page | Pass | |
 | | Search for item | Redirection to a results page | Pass | |
 | | Search for item | Shows results if there is one | Pass | |
 | | Search for item | Shows a no results found page | Pass | |
 | | Click on Items (if logged in) | Dropdown appears | Pass | |
-| | Click on All Products (in Items) | Redirection to All Products page | Pass | |
-| | Click on Soaps (in Items) | Redirection to Soap page | Pass | |
-| | Click on Shampoo Bars (in Items) | Redirection to Shampoo Bars page | Pass | |
-| | Click on Bundles (in Items) | Redirection to Bundles page | Pass | |
-| | Click on Mission | Redirection to Mission page | Pass | |
+| | Click on All Products (in Items) | Redirection to the All Products page | Pass | |
+| | Click on Soaps (in Items) | Redirection to the Soap page | Pass | |
+| | Click on Shampoo Bars (in Items) | Redirection to the Shampoo Bars page | Pass | |
+| | Click on Bundles (in Items) | Redirection to the Bundles page | Pass | |
+| | Click on Mission | Redirection to the Mission page | Pass | |
 | | Click on My Account | Dropdown appears | Pass | |
-| | Click on Product Management (if superuser, in My Account) | Redirection to Add Product page | Pass | |
-| | Click on My Profile (in My Account) | Redirection to My Profile page | Pass | |
+| | Click on Product Management (if superuser, in My Account) | Redirection to the Add Product page | Pass | |
+| | Click on My Profile (in My Account) | Redirection to the My Profile page | Pass | |
 | | Click on Logout (in My Account) | Takes you to Logout page | Pass | |
 | | Click on Bag icon | Takes you to Bag page | Pass | |
 | | Click on My Account (if logged out) | Dropdown appears | Pass | |
@@ -164,7 +164,7 @@ I have thoroughly tested each aspect of the website as shown below.
 | | Click on Update Product | Updates product in database | Pass | Redirects to that particular products page, success toast is activated |
 | | Click on Cancel button | Redirects to Products page | Pass | |
 | My Profile | | | | |
-| | Clicking Update information button | Updates and saves users details | Pass | A success toast pop informing them of the saved changes |
+| | Clicking Update information button | Updates and saves users details | Pass | A success toast pops up informing them of the saved changes |
 | | Click on Delete My Account button | Redirects to Delete Account page | Pass | |
 | | Click on any past order number | Redirects to a checkout success page | Pass | Details of that particular order are displayed and a toast informing the user that this is a past order appears |
 | Delete Account | | | | |
